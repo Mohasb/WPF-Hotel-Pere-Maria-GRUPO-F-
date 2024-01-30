@@ -1,0 +1,132 @@
+﻿<Window x:Class="HotelPereMaria.VentanaBuscador"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotelPereMaria"
+        mc:Ignorable="d"
+        Title="VentanaBuscador" Height="1018" Width="1440">
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Images/logoAzul.png" Width="60" Height="50" Margin="40,28,10,28"/>
+                    <Label FontSize="26" Margin="0,28,10,28">Hotel Pere Maria</Label>
+                    <Border BorderBrush="#103260" BorderThickness="1,0,0,0" Height="54"></Border>
+                    <StackPanel>
+                        <Label FontSize="21" Margin="0,10,0,0">Bienvenido Iván</Label>
+                        <Button FontSize="21" Foreground="#B5B5B5" Margin="0,0,0,0" Background="Transparent" Click="Button_Click" BorderBrush="Transparent">Cerrar sesión</Button>
+                    </StackPanel>
+                    <Border Background="#103260" Margin="625,0,0,0" Height="44" Width="164" CornerRadius="15">
+                        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Añadir reserva</Label>
+                    </Border>
+                </StackPanel>
+                <Label Foreground="#103260" FontSize="52" Margin="45,0,0,0" >Buscador:</Label>
+                <Border Width="1352" Height="223" CornerRadius="20" Background="#FFF7F5F5">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel>
+                            <Label Margin="20,10,0,0" FontSize="14">Número de Huéspedes</Label>
+                            <ComboBox Margin="20,0,0,0" Width="346" Height="48">
+                                <ComboBoxItem>1</ComboBoxItem>
+                                <ComboBoxItem>2</ComboBoxItem>
+                                <ComboBoxItem>3</ComboBoxItem>
+                                <ComboBoxItem>4</ComboBoxItem>
+                            </ComboBox>
+                            <Label Margin="20,20,0,0" FontSize="14">Extras</Label>
+                            <StackPanel Orientation="Horizontal" Margin="25,5,0,0">
+                                <CheckBox>Cuna</CheckBox>
+                                <CheckBox>Cama extra</CheckBox>
+                            </StackPanel>
+                        </StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Grid.Column="0">
+                                <Label Margin="20,10,0,0" FontSize="14">Fecha de entrada</Label>
+                                <DatePicker Margin="20,0,0,0" Width="192" Height="48"></DatePicker>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Grid.Row="0">
+                                <Label Margin="20,10,0,0" FontSize="14">Fecha de salida</Label>
+                                <DatePicker Margin="20,0,0,0" Width="192" Height="48"></DatePicker>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
+                                <Label Margin="20,10,0,0" FontSize="14">Precio noche</Label>
+                                <Slider></Slider>
+                            </StackPanel>
+                        </Grid>
+                        <StackPanel>
+                            <Label Margin="20,10,0,0" FontSize="14">¿Miembro VIP?</Label>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton Margin="20,10,0,0" FontSize="14">Si</RadioButton>
+                                <RadioButton Margin="20,10,0,0" FontSize="14">No</RadioButton>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Background="Transparent" BorderBrush="Transparent" Margin="20,70,0,0">
+                                    <Border BorderBrush="#103260" BorderThickness="1" Height="44" Width="164" CornerRadius="15">
+                                        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">Ofertas</Label>
+                                    </Border>
+                                </Button>
+                                <Button Background="Transparent" BorderBrush="Transparent" Margin="20,70,0,0">
+                                    <Border Background="#103260" Height="44" Width="164" CornerRadius="15">
+                                        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Buscar</Label>
+                                    </Border>
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+
+                    </StackPanel>
+
+                </Border>
+                <Label FontSize="52" Margin="45,0,0,0">Resultados:</Label>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel>
+                        <Image Source="Images/habitacion.png" Width="266" Height="335" Margin="109,10,0,0"/>
+                        <Label Margin="109,10,0,0" FontSize="27" HorizontalAlignment="Center" >Habitación doble</Label>
+                        <Label Margin="109,0,0,0" FontSize="18" HorizontalAlignment="Center" Foreground="#103260">36€ / noche</Label>
+                        <Button x:Name="btnReservar1" Background="Transparent" BorderBrush="Transparent"  Margin="109,10,0,0" Width="170" Height="44" Click="btnReservar1_Click">
+                            <Border Background="#103260" Height="44" Width="164" CornerRadius="15">
+                                <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Reservar habitación</Label>
+                            </Border>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel>
+                        <Image Source="Images/habitacion.png" Width="266" Height="335" Margin="40,10,0,0"/>
+                        <Label Margin="30,10,0,0" FontSize="27" HorizontalAlignment="Center">Habitación doble</Label>
+                        <Label Margin="30,0,0,0" FontSize="18" HorizontalAlignment="Center" Foreground="#103260">36€ / noche</Label>
+                        <Button x:Name="btnReservar2" Background="Transparent" BorderBrush="Transparent"  Margin="40,10,0,0" Width="170" Height="44" Click="btnReservar2_Click">
+                            <Border Background="#103260" Height="44" Width="164" CornerRadius="15">
+                                <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Reservar habitación</Label>
+                            </Border>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel>
+                        <Image Source="Images/habitacion.png" Width="266" Height="335" Margin="40,10,0,0"/>
+                        <Label Margin="30,10,0,0" FontSize="27" HorizontalAlignment="Center">Habitación doble</Label>
+                        <Label Margin="30,0,0,0" FontSize="18" HorizontalAlignment="Center" Foreground="#103260">36€ / noche</Label>
+                        <Button x:Name="btnReservar3" Background="Transparent" BorderBrush="Transparent"  Margin="40,10,0,0" Width="170" Height="44" Click="btnReservar3_Click">
+                            <Border Background="#103260" Height="44" Width="164" CornerRadius="15">
+                                <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Reservar habitación</Label>
+                            </Border>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel>
+                        <Image Source="Images/habitacion.png" Width="266" Height="335" Margin="40,10,0,0"/>
+                        <Label Margin="30,10,0,0" FontSize="27" HorizontalAlignment="Center">Habitación doble</Label>
+                        <Label Margin="30,0,0,0" FontSize="18" HorizontalAlignment="Center" Foreground="#103260">36€ / noche</Label>
+                        <Button x:Name="btnReservar4" Background="Transparent" BorderBrush="Transparent"  Margin="40,10,0,0" Width="170" Height="44" Click="btnReservar4_Click">
+                            <Border Background="#103260" Height="44" Width="164" CornerRadius="15">
+                                <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Reservar habitación</Label>
+                            </Border>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
