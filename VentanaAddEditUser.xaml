@@ -47,14 +47,11 @@
                 <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Margin="20">DNI</Label>
                 <TextBox Foreground="#103260" Grid.Row="4" Grid.Column="1" Height="50" Margin="20,0,20,0"/>
                 
-                <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" Margin="20">Fecha Nacimiento</Label>
+                <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" Margin="20">Número de teléfono</Label>
                 <TextBox Foreground="#103260" Grid.Row="4" Grid.Column="2" Height="50" Margin="20,0,20,0"/>
 
-                <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Center" Margin="20">Ciudad</Label>
-                <ComboBox Foreground="#103260" Grid.Row="6" Height="50" Margin="20,0,20,0">
-                    <ComboBoxItem>Alicante</ComboBoxItem>
-                    <ComboBoxItem>Valencia</ComboBoxItem>
-                </ComboBox>
+                <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Center" Margin="20">Tarjeta de crédito</Label>
+                <TextBox Foreground="#103260" Grid.Row="6" Height="50" Margin="20,0,20,0"/>
 
                 <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Margin="20">Sexo</Label>
                 <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="6">
