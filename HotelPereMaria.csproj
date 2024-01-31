@@ -14,6 +14,7 @@
     <None Remove="Images\logoBlanco.png" />
     <None Remove="Images\logoNeutro.png" />
     <None Remove="Images\pereMariaFondo.png" />
+    <None Remove="VistaUser\logoAzul.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +36,10 @@
     <Content Include="Images\pereMariaFondo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="VistaUser\logoAzul.png" />
   </ItemGroup>
 
 </Project>
