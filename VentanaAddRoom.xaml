@@ -39,7 +39,7 @@
                 </ComboBox>
 
                 <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Center" Margin="20">Descripción</Label>
-                <TextBox Foreground="#103260" Grid.Row="4" Grid.ColumnSpan="3" Height="180" Margin="20,0,20,0" ScrollBar.Scroll=""/>
+                <TextBox Foreground="#103260" Grid.Row="4" Grid.ColumnSpan="3" Height="180" Margin="20,0,20,0"/>
 
                 <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Center" Margin="20">Seleccionar Imagen principal</Label>
 
