@@ -10,10 +10,19 @@
     <Compile Update="VentanaAddEditUser.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="VentanaAddRoom.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="VentanaBuscador.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="VentanaEditRoom.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="VentanaReserva.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="VistaEditUser.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -24,10 +33,19 @@
     <Page Update="VentanaAddEditUser.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="VentanaAddRoom.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="VentanaBuscador.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="VentanaEditRoom.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="VentanaReserva.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="VistaEditUser.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

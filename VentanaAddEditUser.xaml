@@ -35,10 +35,10 @@
                 <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="20">Apellidos</Label>
                 <TextBox Foreground="#103260" Grid.Row="2" Grid.Column="1" Height="50" Margin="20,0,20,0"/>
                 
-                <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Margin="20">Apellidos</Label>
+                <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Margin="20">Rol</Label>
                 <ComboBox Foreground="#103260" Grid.Row="2" Grid.Column="2" Height="50" Margin="20,0,20,0">
-                    <ComboBoxItem>Rol1</ComboBoxItem>
-                    <ComboBoxItem>Rol2</ComboBoxItem>
+                    <ComboBoxItem>Administrado</ComboBoxItem>
+                    <ComboBoxItem>Usuario</ComboBoxItem>
                 </ComboBox>
 
                 <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Center" Margin="20">Email</Label>
