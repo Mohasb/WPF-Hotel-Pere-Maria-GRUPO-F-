@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,9 +25,9 @@ namespace HotelPereMaria.vistaDatagrid
             InitializeComponent();
             dgUsers.ItemsSource = LoadCollectionData();
         }
-        private List<User> LoadCollectionData()
+        private ObservableCollection<User> LoadCollectionData()
         {
-            List<User> users = new List<User>();
+            ObservableCollection<User> users = new ObservableCollection<User>();
 
             users.Add(new User()
             {
@@ -34,6 +35,16 @@ namespace HotelPereMaria.vistaDatagrid
                 ID = 201,
                 Foto = "",
                 Nombre = "Jiandan",
+                Rol = "Administrador",
+                IsVIP = true
+            });
+
+            users.Add(new User()
+            {
+                isSelected = false,
+                ID = 200,
+                Foto = "",
+                Nombre = "Chitan",
                 Rol = "Administrador",
                 IsVIP = true
             });
@@ -53,12 +64,26 @@ namespace HotelPereMaria.vistaDatagrid
 
         private void chkSelectAll_Checked(object sender, RoutedEventArgs e)
         {
-
+            bool AllChecked = (chkSelectAll.IsChecked == true);
+            colchkSelect1.IsChecked = AllChecked;
         }
 
         private void chkSelectAll_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            if (dgUsers.Items.Cast<User>().All(user => user.isSelected))
+            {
+                foreach (User user in dgUsers.Items)
+                {
+                    user.isSelected = false;
+                }
+            }
+            else
+            {
+                foreach (User user in dgUsers.Items)
+                {
+                    user.isSelected = true;
+                }
+            }
         }
 
         private void colchkSelect1_Checked(object sender, RoutedEventArgs e)

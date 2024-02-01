@@ -20,9 +20,9 @@
     </Window.Resources>
 
     <Grid>
-        <DataGrid Name="dgUsers" Height="200" Width="700" HorizontalAlignment="Left" Style="{DynamicResource dgHeaderStyle}" 
-                  Margin="20" VerticalAlignment="Top" IsReadOnly="True"
-                  RowHeight="30" ColumnWidth="100" HorizontalScrollBarVisibility="Visible" GridLinesVisibility="Horizontal"
+        <DataGrid Name="dgUsers" Height="200" Width="700" HorizontalAlignment="Center" Style="{DynamicResource dgHeaderStyle}" 
+                  Margin="20" VerticalAlignment="Center" IsReadOnly="True" AutoGenerateColumns="False"
+                  RowHeight="50" ColumnWidth="100" HorizontalScrollBarVisibility="Visible" GridLinesVisibility="Horizontal"
                   VerticalScrollBarVisibility="Visible" CanUserSortColumns = "False" CanUserResizeColumns="False" SelectionMode="Extended">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Width="30">
@@ -30,14 +30,14 @@
                         <CheckBox Name="chkSelectAll" Checked="chkSelectAll_Checked" Unchecked="chkSelectAll_Unchecked"></CheckBox>
                     </DataGridTemplateColumn.Header>
                     
-                    <DataGridTemplateColumn.CellTemplate >
-                        <DataTemplate >
-                            <CheckBox x:Name="colchkSelect1" Checked="colchkSelect1_Checked"  Unchecked="colchkSelect1_Unchecked" ></CheckBox>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox Name="colchkSelect1" IsChecked="{Binding IsVIP}" Checked="colchkSelect1_Checked"  Unchecked="colchkSelect1_Unchecked" ></CheckBox>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 
-                <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="50" />
 
                 <DataGridTemplateColumn Header="Foto">
                     <DataGridTemplateColumn.CellTemplate>
@@ -46,37 +46,38 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-
+                
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
                 <DataGridTextColumn Header="Rol" Binding="{Binding Rol}" />
 
-                <DataGridTemplateColumn Header="VIP">
+                <DataGridTemplateColumn Header="VIP" Width="30">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="{Binding IsVIP}" />
+                            <CheckBox IsChecked="{Binding IsVIP}" IsEnabled="False" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Width="50" Header="Acción">
+                <DataGridTemplateColumn Width="60" Header="Acción">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="btnEdit" Content="Edit" Height="Auto" Width="50" Margin="10" Click="btnEdit_Click"/>
+                            <Button x:Name="btnEdit" Content="Edit" Height="Auto" Width="30" Margin="10" Click="btnEdit_Click"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Width="50">
+                <DataGridTemplateColumn Width="60">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="btnInformation" Content="Information" Height="Auto" Width="50" Margin="10" Click="btnInformation_Click"/>
+                            <Button x:Name="btnInformation" Content="Inf" Height="Auto" Width="30" Margin="10" Click="btnInformation_Click"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Width="50">
+                <DataGridTemplateColumn Width="60">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="btnDelete" Content="Delete" Height="Auto" Width="50" Margin="10" Click="btnDelete_Click"/>
+                            <Button x:Name="btnDelete" Content="Del" Height="Auto" Width="30" Margin="10" Click="btnDelete_Click"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
