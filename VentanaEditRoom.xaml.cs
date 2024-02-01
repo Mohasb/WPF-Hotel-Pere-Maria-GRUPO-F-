@@ -23,5 +23,10 @@ namespace HotelPereMaria
         {
             InitializeComponent();
         }
+
+        private void OnSelectImageClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
