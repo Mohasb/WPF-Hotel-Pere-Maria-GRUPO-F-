@@ -27,12 +27,12 @@
             <DataGrid.Columns>
                 <DataGridTemplateColumn Width="30">
                     <DataGridTemplateColumn.Header>
-                        <CheckBox Name="chkSelectAll" Checked="chkSelectAll_Checked" Unchecked="chkSelectAll_Unchecked"></CheckBox>
+                        <CheckBox Name="chkSelectAll" Checked="chkSelectAll_CheckedChanged" Unchecked="chkSelectAll_CheckedChanged"></CheckBox>
                     </DataGridTemplateColumn.Header>
                     
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <CheckBox Name="colchkSelect1" IsChecked="{Binding IsVIP}" Checked="colchkSelect1_Checked"  Unchecked="colchkSelect1_Unchecked" ></CheckBox>
+                            <CheckBox Name="colchkSelect1" IsChecked="{Binding IsSelected}" Checked="colchkSelect1_CheckedChanged" Unchecked="colchkSelect1_CheckedChanged"></CheckBox>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
