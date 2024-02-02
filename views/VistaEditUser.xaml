@@ -5,8 +5,78 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelPereMaria"
         mc:Ignorable="d"
-        Title="VistaEditUser" Height="450" Width="800">
+        Title="VistaEditUser" Height="1018" Width="1440">
     <Grid>
-        
+        <Border CornerRadius="20" Background="#FFF7F5F5" Height="691" Width="1297">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Foreground="#103260" FontWeight="Black" Content="Editar usuario" FontSize="38" HorizontalAlignment="Center"/>
+
+                <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Margin="20">Nombre</Label>
+                <TextBox Foreground="#103260" Grid.Row="2" Height="50" Margin="20,0,20,0"/>
+
+                <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="20">Apellidos</Label>
+                <TextBox Foreground="#103260" Grid.Row="2" Grid.Column="1" Height="50" Margin="20,0,20,0"/>
+
+                <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Margin="20">Apellidos</Label>
+                <ComboBox Foreground="#103260" Grid.Row="2" Grid.Column="2" Height="50" Margin="20,0,20,0">
+                    <ComboBoxItem>Rol1</ComboBoxItem>
+                    <ComboBoxItem>Rol2</ComboBoxItem>
+                </ComboBox>
+
+                <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Center" Margin="20">Email</Label>
+                <TextBox Foreground="#103260" Grid.Row="4" Height="50" Margin="20,0,20,0"/>
+
+                <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Margin="20">DNI</Label>
+                <TextBox Foreground="#103260" Grid.Row="4" Grid.Column="1" Height="50" Margin="20,0,20,0"/>
+
+                <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" Margin="20">Número de teléfono</Label>
+                <TextBox Foreground="#103260" Grid.Row="4" Grid.Column="2" Height="50" Margin="20,0,20,0"/>
+
+                <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Center" Margin="20">Tarjeta de crédito</Label>
+                <TextBox Foreground="#103260" Grid.Row="6" Height="50" Margin="20,0,20,0"/>
+
+                <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Margin="20">Sexo</Label>
+                <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="6">
+                    <RadioButton Margin="20,20,0,0" FontSize="14">H</RadioButton>
+                    <RadioButton Margin="20,20,0,0" FontSize="14">M</RadioButton>
+                    <RadioButton Margin="20,20,0,0" FontSize="14">Indeterminado</RadioButton>
+                </StackPanel>
+
+                <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" Margin="20">Miembro VIP</Label>
+                <Button Background="Transparent" BorderBrush="Transparent" Grid.Column="2" Grid.Row="6" HorizontalAlignment="Left" Margin="20,0,0,0">
+                    <Border BorderBrush="#103260" BorderThickness="1" Height="44" Width="164" CornerRadius="15">
+                        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">VIP</Label>
+                    </Border>
+                </Button>
+
+                <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Center" Margin="20">Seleccionar imagen de perfil</Label>
+                <Button Grid.Row="8" Margin="20,10,20,10">
+                    <Label HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16">Seleccionar archivo</Label>
+                </Button>
+
+                <Button Background="Transparent" BorderBrush="Transparent" Grid.Column="2" Grid.Row="9" HorizontalAlignment="Right" Margin="0,0,20,0">
+                    <Border Background="#103260" Height="44" Width="164" CornerRadius="15">
+                        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Enviar</Label>
+                    </Border>
+                </Button>
+            </Grid>
+        </Border>
     </Grid>
 </Window>
