@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,9 +23,19 @@ namespace HotelPereMaria.VistaUser
     /// </summary>
     public partial class VistaUserView : Window
     {
+        private VistaUserVM viewModel;
         public VistaUserView()
         {
             InitializeComponent();
+            viewModel = new();
+            DataContext = viewModel;
+            LoadReservations();
         }
+
+        private async void LoadReservations()
+        {
+           await viewModel.LoadReservations("correo1@example.com");
+        }
+        
     }
 }

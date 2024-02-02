@@ -12,9 +12,9 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Image Source="Images/pereMariaFondo.png" Grid.Column="1"/>
+        <Image Source="../Images/pereMariaFondo.png" Grid.Column="1"/>
 
-        <Image Source="Images/logoAzul.png" Margin="82,112,547,794" Grid.Column="0"/>
+        <Image Source="../Images/logoAzul.png" Margin="82,112,547,794" Grid.Column="0"/>
 
         <Label Margin="187,144,187,223" FontSize="27" FontFamily="Fonts/Montserrat-Regular.ttf">Hotel Pere María</Label>
 
@@ -28,7 +28,7 @@
             <Label FontSize="14" Foreground="#103260">Password</Label>
             <PasswordBox Width="504" Height="48" Opacity="0.4" Margin="0,0,0,20"></PasswordBox>
             <Button Width="80" Height="80" HorizontalAlignment="Left" BorderBrush="Transparent" Background="Transparent" Click="Button_Click">
-                <Image Source="Images/arrow.png" Width="50" Height="50" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5">
+                <Image Source="../Images/arrow.png" Width="50" Height="50" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5">
                     <Image.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
