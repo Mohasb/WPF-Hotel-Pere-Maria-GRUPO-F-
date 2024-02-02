@@ -14,7 +14,7 @@
     <None Remove="Images\logoBlanco.png" />
     <None Remove="Images\logoNeutro.png" />
     <None Remove="Images\pereMariaFondo.png" />
-    <None Remove="VistaUser\logoAzul.png" />
+    <None Remove="views\pereMariaFondo.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,7 +39,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="VistaUser\logoAzul.png" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="views\logoAzul.png" />
+    <Resource Include="views\pereMariaFondo.png" />
   </ItemGroup>
 
 </Project>

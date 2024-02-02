@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:HotelPereMaria"
              StartupUri="./vistaDatagrid/VistaDatagridView.xaml">
+             <!--StartupUri="/views/MainWindow.xaml">-->
     <Application.Resources>
          
     </Application.Resources>

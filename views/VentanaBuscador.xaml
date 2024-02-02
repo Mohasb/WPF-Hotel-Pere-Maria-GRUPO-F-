@@ -10,7 +10,7 @@
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="Images/logoAzul.png" Width="60" Height="50" Margin="40,28,10,28"/>
+                    <Image Source="../Images/logoAzul.png" Width="60" Height="50" Margin="40,28,10,28"/>
                     <Label FontSize="26" Margin="0,28,10,28">Hotel Pere Maria</Label>
                     <Border BorderBrush="#103260" BorderThickness="1,0,0,0" Height="54"></Border>
                     <StackPanel>
@@ -86,7 +86,7 @@
                 <Label FontSize="52" Margin="45,0,0,0">Resultados:</Label>
                 <StackPanel Orientation="Horizontal">
                     <StackPanel>
-                        <Image Source="Images/habitacion.png" Width="266" Height="335" Margin="109,10,0,0"/>
+                        <Image Source="../Images/habitacion.png" Width="266" Height="335" Margin="109,10,0,0"/>
                         <Label Margin="109,10,0,0" FontSize="27" HorizontalAlignment="Center" >Habitación doble</Label>
                         <Label Margin="109,0,0,0" FontSize="18" HorizontalAlignment="Center" Foreground="#103260">36€ / noche</Label>
                         <Button x:Name="btnReservar1" Background="Transparent" BorderBrush="Transparent"  Margin="109,10,0,0" Width="170" Height="44" Click="btnReservar1_Click">
@@ -96,7 +96,7 @@
                         </Button>
                     </StackPanel>
                     <StackPanel>
-                        <Image Source="Images/habitacion.png" Width="266" Height="335" Margin="40,10,0,0"/>
+                        <Image Source="../Images/habitacion.png" Width="266" Height="335" Margin="40,10,0,0"/>
                         <Label Margin="30,10,0,0" FontSize="27" HorizontalAlignment="Center">Habitación doble</Label>
                         <Label Margin="30,0,0,0" FontSize="18" HorizontalAlignment="Center" Foreground="#103260">36€ / noche</Label>
                         <Button x:Name="btnReservar2" Background="Transparent" BorderBrush="Transparent"  Margin="40,10,0,0" Width="170" Height="44" Click="btnReservar2_Click">
@@ -106,7 +106,7 @@
                         </Button>
                     </StackPanel>
                     <StackPanel>
-                        <Image Source="Images/habitacion.png" Width="266" Height="335" Margin="40,10,0,0"/>
+                        <Image Source="../Images/habitacion.png" Width="266" Height="335" Margin="40,10,0,0"/>
                         <Label Margin="30,10,0,0" FontSize="27" HorizontalAlignment="Center">Habitación doble</Label>
                         <Label Margin="30,0,0,0" FontSize="18" HorizontalAlignment="Center" Foreground="#103260">36€ / noche</Label>
                         <Button x:Name="btnReservar3" Background="Transparent" BorderBrush="Transparent"  Margin="40,10,0,0" Width="170" Height="44" Click="btnReservar3_Click">
@@ -116,7 +116,7 @@
                         </Button>
                     </StackPanel>
                     <StackPanel>
-                        <Image Source="Images/habitacion.png" Width="266" Height="335" Margin="40,10,0,0"/>
+                        <Image Source="../Images/habitacion.png" Width="266" Height="335" Margin="40,10,0,0"/>
                         <Label Margin="30,10,0,0" FontSize="27" HorizontalAlignment="Center">Habitación doble</Label>
                         <Label Margin="30,0,0,0" FontSize="18" HorizontalAlignment="Center" Foreground="#103260">36€ / noche</Label>
                         <Button x:Name="btnReservar4" Background="Transparent" BorderBrush="Transparent"  Margin="40,10,0,0" Width="170" Height="44" Click="btnReservar4_Click">
