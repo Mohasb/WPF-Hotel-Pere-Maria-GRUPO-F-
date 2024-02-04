@@ -1,13 +1,13 @@
-﻿using Newtonsoft.Json;
+﻿using HotelPereMaria.viewModels;
+using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace HotelPereMaria.VistaUser
 {
@@ -17,6 +17,102 @@ namespace HotelPereMaria.VistaUser
 
         private ObservableCollection<Reservation> _reservations;
         private User _currentUser;
+
+        private RelayCommand _deleteCommand;
+
+        public RelayCommand DeleteCommand
+        {
+            get
+            {
+                if (_deleteCommand == null)
+                {
+                    _deleteCommand = new RelayCommand(param => DeleteReservationAndApiAsync((Reservation)param), param => true);
+                }
+                return _deleteCommand;
+            }
+        }
+
+        private bool _isDataGridVisible;
+
+        public bool IsDataGridVisible
+        {
+            get { return _isDataGridVisible; }
+            set
+            {
+                _isDataGridVisible = value;
+                OnPropertyChanged(nameof(IsDataGridVisible));
+            }
+        }
+
+
+
+
+        private void DeleteReservation(Reservation reservation)
+        {
+            if (reservation != null)
+            {
+                int index = Reservations.IndexOf(reservation);
+                if (index != -1)
+                {
+                    Reservations.RemoveAt(index);
+                }
+            }
+        }
+
+        private async Task DeleteReservationAndApiAsync(Reservation reservation)
+        {
+            // Confirmar con el usuario antes de eliminar
+            MessageBoxResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar esta reserva?", "Confirmación", MessageBoxButton.YesNo);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                int reservationIndex = reservation.ReservationId - 1;
+
+                // Eliminar la reserva de la colección local
+                DeleteReservation(reservation);
+
+                // Eliminar la reserva de la API utilizando el índice
+                if (reservation != null)
+                {
+                    if (reservationIndex >= 0 && reservationIndex < Reservations.Count)
+                    {
+                        await DeleteReservationApiAsync(reservation.user.email, reservationIndex);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error: Índice de reserva no válido");
+                    }
+                }
+            }
+        }
+
+        private async Task DeleteReservationApiAsync(string userEmail, int reservationIndex)
+        {
+            try
+            {
+                string apiUrl = $"https://localhost/api/reservations/{userEmail}/{reservationIndex}";
+
+                using (HttpClientHandler handler = new HttpClientHandler())
+                {
+                    handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
+
+                    using (HttpClient client = new HttpClient(handler))
+                    {
+                        HttpResponseMessage response = await client.DeleteAsync(apiUrl);
+
+                        if (!response.IsSuccessStatusCode)
+                        {
+                            MessageBox.Show($"Error: {response.StatusCode}");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+        }
+
 
         public User CurrentUser
         {
@@ -65,6 +161,13 @@ namespace HotelPereMaria.VistaUser
                             if (reservations.Count > 0)
                             {
                                 CurrentUser = reservations[0].user;
+                            }
+                            // Asignar id basado en el índice
+                            for (int i = 0; i < reservations.Count; i++)
+                            {
+                                reservations[i].ReservationId = i + 1;
+                                reservations[i].check_in_date = new DateTime(reservations[i].check_in_date.Year, reservations[i].check_in_date.Month, reservations[i].check_in_date.Day, 12, 0, 0);
+                                reservations[i].check_out_date = new DateTime(reservations[i].check_out_date.Year, reservations[i].check_out_date.Month, reservations[i].check_in_date.Day, 14, 0, 0);
                             }
                         }
                         else

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelPereMaria.VistaUser;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,12 @@ namespace HotelPereMaria
     /// </summary>
     public partial class VentanaReserva : Window
     {
-        public VentanaReserva()
+        public User CurrentUser { get; private set; }
+
+        public VentanaReserva(User currentUser)
         {
             InitializeComponent();
+            CurrentUser = currentUser;
         }
     }
 }

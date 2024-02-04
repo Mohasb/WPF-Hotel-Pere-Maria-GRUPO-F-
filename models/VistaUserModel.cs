@@ -9,7 +9,7 @@ namespace HotelPereMaria.VistaUser
 {
 
 
-    public class Reservation
+    public class Reservation: INotifyPropertyChanged
     {
         public string _id { get; set; }
         public List<Extra> extras { get; set; }
@@ -20,16 +20,27 @@ namespace HotelPereMaria.VistaUser
         public double price_per_night { get; set; }
         public DateTime cancelation_date { get; set; }
 
-        private static int _nextId = 1;
+        private int reservationId;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
 
         public int ReservationId
         {
-            get { return _nextId; }
-            set { _nextId = value; }
+            get { return reservationId; }
+            set
+            {
+                if (reservationId != value)
+                {
+                    reservationId = value;
+                    OnPropertyChanged(nameof(ReservationId));
+                }
+            }
         }
-        public Reservation()
+
+        public Reservation(int reservationIndex)
         {
-            ReservationId = _nextId++;
+            ReservationId = reservationIndex + 1;
         }
 
         public double TotalPrice
@@ -39,6 +50,10 @@ namespace HotelPereMaria.VistaUser
                 double extrasPrice = extras?.Sum(extra => extra.price) ?? 0;
                 return price_per_night + extrasPrice;
             }
+        }
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 

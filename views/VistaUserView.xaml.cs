@@ -23,19 +23,43 @@ namespace HotelPereMaria.VistaUser
     /// </summary>
     public partial class VistaUserView : Window
     {
+        public string Email { get; private set; }
         private VistaUserVM viewModel;
-        public VistaUserView()
+
+        public VistaUserView(/*string email*/)
         {
             InitializeComponent();
+            //Email = email;
             viewModel = new();
             DataContext = viewModel;
-            LoadReservations();
+            LoadReservations(/*Email*/);
         }
 
-        private async void LoadReservations()
+        private async void LoadReservations(/*string email*/)
         {
-           await viewModel.LoadReservations("correo1@example.com");
+           await viewModel.LoadReservations(/*Email*/"correo1@example.com");
         }
-        
+
+        private void toggleButton_Checked(object sender, RoutedEventArgs e)
+        {
+            toggleButton.Content = "Cambiar vista a ListView";
+            dataGrid.Visibility = toggleButton.IsChecked == true ? Visibility.Visible : Visibility.Collapsed;
+            listView.Visibility = toggleButton.IsChecked == true ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        private void toggleButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            toggleButton.Content = "Cambiar vista a DataGrid";
+            dataGrid.Visibility = toggleButton.IsChecked == true ? Visibility.Visible : Visibility.Collapsed;
+            listView.Visibility = toggleButton.IsChecked == true ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        private void BtnReserva_Click(object sender, RoutedEventArgs e)
+        {
+            User currentUser = viewModel.CurrentUser;
+
+            VentanaReserva vr = new VentanaReserva(currentUser);
+            vr.Show();
+        }
     }
 }
