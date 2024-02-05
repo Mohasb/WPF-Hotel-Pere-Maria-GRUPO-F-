@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelPereMaria.vistaDatagrid"
         mc:Ignorable="d"
-        Title="Datagrid" Height="1018" Width="1440">
+        Title="Datagrid" Height="1018" Width="1440" WindowStartupLocation="CenterOwner">
 
     <Window.Resources>
         <Style x:Key="dgHeaderStyle" TargetType="{x:Type DataGrid}">
@@ -20,7 +20,7 @@
     </Window.Resources>
 
     <Grid>
-        <DataGrid Name="dgUsers" Height="200" Width="700" HorizontalAlignment="Center" Style="{DynamicResource dgHeaderStyle}" 
+        <DataGrid Name="dgUsers" Height="650" Width="1075" HorizontalAlignment="Center" Style="{DynamicResource dgHeaderStyle}" 
                   Margin="20" VerticalAlignment="Center" IsReadOnly="True" AutoGenerateColumns="False"
                   RowHeight="50" ColumnWidth="100" HorizontalScrollBarVisibility="Visible" GridLinesVisibility="Horizontal"
                   VerticalScrollBarVisibility="Visible" CanUserSortColumns = "False" CanUserResizeColumns="False" SelectionMode="Extended">
@@ -39,18 +39,18 @@
                 
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="50" />
 
-                <DataGridTemplateColumn Header="Foto">
+                <DataGridTemplateColumn Header="Foto" Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Image Source="{Binding Foto}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                
-                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
-                <DataGridTextColumn Header="Rol" Binding="{Binding Rol}" />
 
-                <DataGridTemplateColumn Header="VIP" Width="30">
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="200" />
+                <DataGridTextColumn Header="Rol" Binding="{Binding Rol}" Width="200" />
+
+                <DataGridTemplateColumn Header="VIP" Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <CheckBox IsChecked="{Binding IsVIP}" IsEnabled="False" />
