@@ -21,18 +21,19 @@
             </Image.OpacityMask>
         </Image>
 
-        <Label Grid.Column="1" Content="Hotel Pere María" FontSize="24" VerticalAlignment="Center" FontWeight="Bold"/>
+        <Label Grid.Column="1" Content="Hotel Pere María" FontSize="24" VerticalAlignment="Center" FontWeight="Bold" Foreground="{StaticResource primaryColorBrush}"/>
+
         <Border Grid.Column="2" BorderBrush="Transparent" BorderThickness="1" Background="Transparent"  VerticalAlignment="Center">
-            <TextBlock Text="Buscador" FontSize="18" Margin="30,0,0,0" FontWeight="Bold"/>
+            <TextBlock Text="Buscador" FontSize="18" Margin="30,0,0,0" FontWeight="Bold" Foreground="{StaticResource primaryColorBrush}"/>
         </Border>
         <Border Grid.Column="3" BorderBrush="Transparent" BorderThickness="1" Background="Transparent" VerticalAlignment="Center">
-            <TextBlock Text="Usuarios" FontSize="18" Margin="20,0,0,0" FontWeight="Bold"/>
+            <TextBlock Text="Usuarios" FontSize="18" Margin="20,0,0,0" FontWeight="Bold" Foreground="{StaticResource primaryColorBrush}"/>
         </Border>
         <Border Grid.Column="4" BorderBrush="Transparent" BorderThickness="1" Background="Transparent" VerticalAlignment="Center">
-            <TextBlock Text="Reservas" FontSize="18" Margin="20,0,0,0" FontWeight="Bold"/>
+            <TextBlock Text="Reservas" FontSize="18" Margin="20,0,0,0" FontWeight="Bold" Foreground="{StaticResource primaryColorBrush}"/>
         </Border>
         <Border Grid.Column="5" BorderBrush="Transparent" BorderThickness="1" Background="Transparent" VerticalAlignment="Center">
-            <TextBlock Text="Habitaciones" FontSize="18" Margin="20,0,0,0" FontWeight="Bold"/>
+            <TextBlock Text="Habitaciones" FontSize="18" Margin="20,0,0,0" FontWeight="Bold" Foreground="{StaticResource primaryColorBrush}"/>
         </Border>
 
     </Grid>
@@ -87,8 +88,8 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="Width" Value="110"/>
-        <Setter Property="Height" Value="50"/>
+        <Setter Property="FontSize" Value="40"/>
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
@@ -112,9 +113,10 @@
         <Setter Property="Background" Value="{DynamicResource primaryColorBrush}"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="20"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="50"/>
+        <Setter Property="Padding" Value="20"/>
     </Style>
     <Style TargetType="{x:Type DataGridColumnHeader}">
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -126,11 +128,72 @@
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="20"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="{DynamicResource primaryColorBrush}"/>
             </Trigger>
         </Style.Triggers>
+        
     </Style>
+     <!--Style combobox Rooms-->
+    <Style x:Key="ComboBoxStyle" TargetType="ComboBox">
+        <Setter Property="Foreground" Value="{StaticResource WhiteForegroundBrush}" />
+        <Setter Property="Background" Value="White" />
+        <Setter Property="BorderBrush" Value="Gray" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="FontFamily" Value="Segoe UI" />
+        <Setter Property="FontSize" Value="30" />
+        <Setter Property="IsEditable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ComboBox">
+                    <Grid>
+                        <ToggleButton
+                        Name="ToggleButton"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{StaticResource primaryColorBrush}"
+                        Grid.Column="2"
+                        Focusable="False"
+                        ClickMode="Press"
+                        IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                    />
+                        <ContentPresenter
+                        Name="ContentSite"
+                        IsHitTestVisible="False"
+                        Content="{TemplateBinding SelectionBoxItem}"
+                        ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                        ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                        Margin="3,3,23,3"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                            
+                    />
+                        <Popup
+                        Name="Popup"
+                        Placement="Bottom"
+                        IsOpen="{TemplateBinding IsDropDownOpen}"
+                        AllowsTransparency="True"
+                        Focusable="False"
+                        PopupAnimation="Slide"
+                    >
+                            <Grid Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                <Border x:Name="DropDownBorder" Background="{StaticResource primaryColorBrush}" BorderThickness="1" BorderBrush="{StaticResource primaryColorBrush}"/>
+                                <ScrollViewer SnapsToDevicePixels="True">
+                                    <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Contained" />
+                                </ScrollViewer>
+                            </Grid>
+                        </Popup>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 
 </ResourceDictionary>

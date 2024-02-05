@@ -42,14 +42,12 @@ namespace HotelPereMaria.VistaUser
 
         private void toggleButton_Checked(object sender, RoutedEventArgs e)
         {
-            toggleButton.Content = "Cambiar vista a ListView";
             dataGrid.Visibility = toggleButton.IsChecked == true ? Visibility.Visible : Visibility.Collapsed;
             listView.Visibility = toggleButton.IsChecked == true ? Visibility.Collapsed : Visibility.Visible;
         }
 
         private void toggleButton_Unchecked(object sender, RoutedEventArgs e)
         {
-            toggleButton.Content = "Cambiar vista a DataGrid";
             dataGrid.Visibility = toggleButton.IsChecked == true ? Visibility.Visible : Visibility.Collapsed;
             listView.Visibility = toggleButton.IsChecked == true ? Visibility.Collapsed : Visibility.Visible;
         }

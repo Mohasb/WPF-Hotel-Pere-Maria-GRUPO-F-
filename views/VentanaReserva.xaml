@@ -5,7 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelPereMaria"
         mc:Ignorable="d"
-        Title="VentanaReserva" Height="1018" Width="1440">
+        Title="VentanaReserva" Height="1018" Width="1440" WindowState="Maximized">
+    <Window.Resources>
+        <!-- Referencia al archivo de recursos -->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../resources/resources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="/views/pereMariaFondo.png"/>
+    </Window.Background>
     <Grid>
         <Border CornerRadius="20" Background="#FFF7F5F5" Height="691" Width="1297">
             <Grid>
@@ -41,14 +52,15 @@
                     <ComboBoxItem>3</ComboBoxItem>
                     <ComboBoxItem>4</ComboBoxItem>
                 </ComboBox>
-                <Label Foreground="#103260" Content="Precio" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Column="1" Grid.Row="3" FontSize="18"/>
-                <Label Foreground="#103260" FontWeight="Black" Content="205,95€" HorizontalAlignment="Left" Margin="20,0,0,0" FontSize="38" Grid.Column="1" Grid.Row="4"/>
-                <Label Foreground="#103260" Content="Cliente" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Column="1" Grid.Row="5" FontSize="18"/>
-                <ComboBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="4" Margin="40,0,80,0">
-                    <ComboBoxItem>1</ComboBoxItem>
-                    <ComboBoxItem>2</ComboBoxItem>
-                    <ComboBoxItem>3</ComboBoxItem>
-                    <ComboBoxItem>4</ComboBoxItem>
+                <Label Foreground="#103260" Content="Tipo Habitación" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Column="1" Grid.Row="3" FontSize="18"/>
+                <Label Foreground="#103260" FontWeight="Black" Content="205,95€" HorizontalAlignment="Left" Margin="20,0,0,0" FontSize="38" Grid.Column="5" Grid.Row="7"/>
+                <Label Foreground="#103260" Content="Cliente" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Column="1" Grid.Row="6" FontSize="18"/>
+                <ComboBox IsDropDownOpen="True" Style="{StaticResource ComboBoxStyle}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"  SelectedIndex="0">
+                    <ComboBoxItem>Habitación Estandar</ComboBoxItem>
+                    <ComboBoxItem>Habitación Individual</ComboBoxItem>
+                    <ComboBoxItem>Habitación Familiar</ComboBoxItem>
+                    <ComboBoxItem>Habitación Deluxe</ComboBoxItem>
+                    <ComboBoxItem>Habitación Suite</ComboBoxItem>
                 </ComboBox>
                 <Label Foreground="#103260" Content="Iván Nieto" HorizontalAlignment="Left" Margin="20,10,0,0" Grid.Column="1" Grid.Row="7" FontSize="18"/>
                 <Label Foreground="#103260" Content="ivan@peremaria.com" HorizontalAlignment="Left" Margin="20,10,0,0" Grid.Column="2" Grid.Row="7" FontSize="18"/>
