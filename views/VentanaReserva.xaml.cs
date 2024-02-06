@@ -1,17 +1,6 @@
-﻿using HotelPereMaria.VistaUser;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using HotelPereMaria.viewModels;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace HotelPereMaria
 {
@@ -20,12 +9,16 @@ namespace HotelPereMaria
     /// </summary>
     public partial class VentanaReserva : Window
     {
-        public User CurrentUser { get; private set; }
+
+        ReservaVM ViewModel { get; set; }
+        User CurrentUser { get; set; }
 
         public VentanaReserva(User currentUser)
         {
             InitializeComponent();
             CurrentUser = currentUser;
+            ViewModel = new ReservaVM(currentUser);
+            DataContext = ViewModel;
         }
     }
 }

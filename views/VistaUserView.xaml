@@ -59,13 +59,13 @@
                             </Image.Clip>
                         </Image>
                         <Label Content="Nombre" HorizontalAlignment="Center" FontSize="16"/>
-                        <TextBlock Foreground="{DynamicResource primaryColorBrush}" FontWeight="Bold"  Text="{Binding CurrentUser.name, Mode=OneWay}" HorizontalAlignment="Center" FontSize="25"/>
+                        <TextBlock Foreground="{DynamicResource primaryColorBrush}" FontWeight="Bold"  Text="{Binding CurrentUser.Name, Mode=OneWay}" HorizontalAlignment="Center" FontSize="25"/>
                         <Label Content="Rol" HorizontalAlignment="Center" FontSize="16"/>
-                        <TextBlock Foreground="{DynamicResource primaryColorBrush}" FontWeight="Bold" Text="{Binding CurrentUser.role, Mode=OneWay}" HorizontalAlignment="Center" FontSize="25"/>
+                        <TextBlock Foreground="{DynamicResource primaryColorBrush}" FontWeight="Bold" Text="{Binding CurrentUser.Role, Mode=OneWay}" HorizontalAlignment="Center" FontSize="25"/>
                         <Label Content="Email" HorizontalAlignment="Center" FontSize="16"/>
-                        <TextBlock Foreground="{DynamicResource primaryColorBrush}" FontWeight="Bold" Text="{Binding CurrentUser.email, Mode=OneWay}" HorizontalAlignment="Center" FontSize="25"/>
+                        <TextBlock Foreground="{DynamicResource primaryColorBrush}" FontWeight="Bold" Text="{Binding CurrentUser.Email, Mode=OneWay}" HorizontalAlignment="Center" FontSize="25"/>
                         <Label Content="Telefono" HorizontalAlignment="Center" FontSize="16"/>
-                        <TextBlock Foreground="{DynamicResource primaryColorBrush}" FontWeight="Bold" Text="{Binding CurrentUser.phone, Mode=OneWay}" HorizontalAlignment="Center" Margin="0,0,0,25" FontSize="25"/>
+                        <TextBlock Foreground="{DynamicResource primaryColorBrush}" FontWeight="Bold" Text="{Binding CurrentUser.Phone, Mode=OneWay}" HorizontalAlignment="Center" Margin="0,0,0,25" FontSize="25"/>
                     </StackPanel>
                 </Border>
                 </Viewbox>

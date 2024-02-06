@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelPereMaria.models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -7,74 +8,6 @@ using System.Linq;
 
 namespace HotelPereMaria.VistaUser
 {
-
-
-    public class Reservation: INotifyPropertyChanged
-    {
-        public string _id { get; set; }
-        public List<Extra> extras { get; set; }
-        public User user { get; set; }
-        public int room_number { get; set; }
-        public DateTime check_in_date { get; set; }
-        public DateTime check_out_date { get; set; }
-        public double price_per_night { get; set; }
-        public DateTime cancelation_date { get; set; }
-
-        private int reservationId;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-
-        public int ReservationId
-        {
-            get { return reservationId; }
-            set
-            {
-                if (reservationId != value)
-                {
-                    reservationId = value;
-                    OnPropertyChanged(nameof(ReservationId));
-                }
-            }
-        }
-
-        public Reservation(int reservationIndex)
-        {
-            ReservationId = reservationIndex + 1;
-        }
-
-        public double TotalPrice
-        {
-            get
-            {
-                double extrasPrice = extras?.Sum(extra => extra.price) ?? 0;
-                return price_per_night + extrasPrice;
-            }
-        }
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-    }
-
-    public class Extra
-    {
-        public string name { get; set; }
-        public double price { get; set; }
-    }
-
-    public class User
-    {
-        public string name { get; set; }
-        public string email { get; set; }
-        public string user_name { get; set; }
-        public string role { get; set; }
-        public string phone { get; set; }
-    }
-
-
-
-
     class VistaUserModel : INotifyPropertyChanged
     {
         private string userId;
@@ -82,23 +15,23 @@ namespace HotelPereMaria.VistaUser
         private string email;
         private string password;
         private string role;
-        private ObservableCollection<Reservation> reservations;
+        private ObservableCollection<ReservaModel> reservations;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public VistaUserModel()
         {
-            reservations = new ObservableCollection<Reservation>();
+            reservations = new ObservableCollection<ReservaModel>();
         }
 
-        public VistaUserModel(string userId, string userName, string email, string password, string role, List<Reservation> reservations)
+        public VistaUserModel(string userId, string userName, string email, string password, string role, List<ReservaModel> reservations)
         {
             this.userId = userId;
             this.userName = userName;
             this.email = email;
             this.password = password;
             this.role = role;
-            this.reservations = new ObservableCollection<Reservation>(reservations);
+            this.reservations = new ObservableCollection<ReservaModel>(reservations);
         }
 
         public string UserId
@@ -166,7 +99,7 @@ namespace HotelPereMaria.VistaUser
             }
         }
 
-        public ObservableCollection<Reservation> Reservations
+        public ObservableCollection<ReservaModel> Reservations
         {
             get => reservations;
             set

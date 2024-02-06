@@ -1,4 +1,5 @@
-﻿using HotelPereMaria.viewModels;
+﻿using HotelPereMaria.models;
+using HotelPereMaria.viewModels;
 using Newtonsoft.Json;
 using System;
 using System.Collections.ObjectModel;
@@ -15,7 +16,7 @@ namespace HotelPereMaria.VistaUser
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private ObservableCollection<Reservation> _reservations;
+        private ObservableCollection<ReservaModel> _reservations;
         private User _currentUser;
 
         private RelayCommand _deleteCommand;
@@ -26,7 +27,7 @@ namespace HotelPereMaria.VistaUser
             {
                 if (_deleteCommand == null)
                 {
-                    _deleteCommand = new RelayCommand(param => DeleteReservationAndApiAsync((Reservation)param), param => true);
+                    _deleteCommand = new RelayCommand(param => DeleteReservationAndApiAsync((ReservaModel)param), param => true);
                 }
                 return _deleteCommand;
             }
@@ -47,7 +48,7 @@ namespace HotelPereMaria.VistaUser
 
 
 
-        private void DeleteReservation(Reservation reservation)
+        private void DeleteReservation(ReservaModel reservation)
         {
             if (reservation != null)
             {
@@ -59,7 +60,7 @@ namespace HotelPereMaria.VistaUser
             }
         }
 
-        private async Task DeleteReservationAndApiAsync(Reservation reservation)
+        private async Task DeleteReservationAndApiAsync(ReservaModel reservation)
         {
             // Confirmar con el usuario antes de eliminar
             MessageBoxResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar esta reserva?", "Confirmación", MessageBoxButton.YesNo);
@@ -76,7 +77,7 @@ namespace HotelPereMaria.VistaUser
                 {
                     if (reservationIndex >= 0 && reservationIndex < Reservations.Count)
                     {
-                        await DeleteReservationApiAsync(reservation.user.email, reservationIndex);
+                        await DeleteReservationApiAsync(reservation.user.Email, reservationIndex);
                     }
                     else
                     {
@@ -124,7 +125,7 @@ namespace HotelPereMaria.VistaUser
             }
         }
 
-        public ObservableCollection<Reservation> Reservations
+        public ObservableCollection<ReservaModel> Reservations
         {
             get { return _reservations; }
             set
@@ -154,7 +155,7 @@ namespace HotelPereMaria.VistaUser
                         if (response.IsSuccessStatusCode)
                         {
                             string json = await response.Content.ReadAsStringAsync();
-                            var reservations = JsonConvert.DeserializeObject<ObservableCollection<Reservation>>(json);
+                            var reservations = JsonConvert.DeserializeObject<ObservableCollection<ReservaModel>>(json);
 
                             Reservations = reservations;
 

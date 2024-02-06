@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelPereMaria"
+        xmlns:vm="clr-namespace:HotelPereMaria.viewModels"
         mc:Ignorable="d"
         Title="VentanaReserva" Height="1018" Width="1440" WindowState="Maximized">
     <Window.Resources>
@@ -54,7 +55,6 @@
                 </ComboBox>
                 <Label Foreground="#103260" Content="Tipo Habitación" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Column="1" Grid.Row="3" FontSize="18"/>
                 <Label Foreground="#103260" FontWeight="Black" Content="205,95€" HorizontalAlignment="Left" Margin="20,0,0,0" FontSize="38" Grid.Column="5" Grid.Row="7"/>
-                <Label Foreground="#103260" Content="Cliente" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Column="1" Grid.Row="6" FontSize="18"/>
                 <ComboBox IsDropDownOpen="True" Style="{StaticResource ComboBoxStyle}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"  SelectedIndex="0">
                     <ComboBoxItem>Habitación Estandar</ComboBoxItem>
                     <ComboBoxItem>Habitación Individual</ComboBoxItem>
@@ -62,8 +62,8 @@
                     <ComboBoxItem>Habitación Deluxe</ComboBoxItem>
                     <ComboBoxItem>Habitación Suite</ComboBoxItem>
                 </ComboBox>
-                <Label Foreground="#103260" Content="Iván Nieto" HorizontalAlignment="Left" Margin="20,10,0,0" Grid.Column="1" Grid.Row="7" FontSize="18"/>
-                <Label Foreground="#103260" Content="ivan@peremaria.com" HorizontalAlignment="Left" Margin="20,10,0,0" Grid.Column="2" Grid.Row="7" FontSize="18"/>
+                <Label Foreground="#103260" Content="Iván Nieto" HorizontalAlignment="Left" Margin="20,10,0,0" Grid.Column="1" Grid.Row="8" FontSize="18"/>
+                <Label Foreground="#103260" Content="ivan@peremaria.com" HorizontalAlignment="Left" Margin="20,10,0,0" Grid.Column="2" Grid.Row="8" FontSize="18"/>
                 <Button Background="Transparent" BorderBrush="Transparent" Grid.Column="4" Grid.Row="8">
                     <Border Background="#103260" Height="44" Width="164" CornerRadius="15">
                         <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Crear Reserva</Label>
