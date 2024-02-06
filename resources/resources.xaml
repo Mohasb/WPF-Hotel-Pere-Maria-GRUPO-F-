@@ -194,6 +194,14 @@
             </Setter.Value>
         </Setter>
     </Style>
+     <!--Labels-->
+    <Style x:Key="styleLabels" TargetType="Label">
+        <Setter Property="Foreground" Value="{StaticResource primaryColorBrush}" />
+        <Setter Property="FontSize" Value="30" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+           
+    </Style>
 
 
 </ResourceDictionary>

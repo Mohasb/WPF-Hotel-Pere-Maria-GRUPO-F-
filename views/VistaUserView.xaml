@@ -26,7 +26,7 @@
         </Grid.ColumnDefinitions>
         <ContentControl  Height="50" Margin="20,10,20,10" Content="{StaticResource Navigator}" VerticalAlignment="Top" />
         <Border Margin="100" CornerRadius="20" Background="#FFF7F5F5">
-                <Grid>
+                <Grid Margin="0,10,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="3*"/>
