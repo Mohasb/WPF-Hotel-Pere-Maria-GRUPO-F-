@@ -17,7 +17,7 @@ namespace HotelPereMaria.VistaUser
         public event PropertyChangedEventHandler PropertyChanged;
 
         private ObservableCollection<ReservaModel> _reservations;
-        private User _currentUser;
+        private UserModel _currentUser;
 
         private RelayCommand _deleteCommand;
 
@@ -77,7 +77,7 @@ namespace HotelPereMaria.VistaUser
                 {
                     if (reservationIndex >= 0 && reservationIndex < Reservations.Count)
                     {
-                        await DeleteReservationApiAsync(reservation.user.Email, reservationIndex);
+                        await DeleteReservationApiAsync(reservation.user.email, reservationIndex);
                     }
                     else
                     {
@@ -115,7 +115,7 @@ namespace HotelPereMaria.VistaUser
         }
 
 
-        public User CurrentUser
+        public UserModel CurrentUser
         {
             get { return _currentUser; }
             set

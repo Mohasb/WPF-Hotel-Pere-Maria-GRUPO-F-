@@ -1,4 +1,5 @@
 ﻿
+using HotelPereMaria.models;
 using HotelPereMaria.viewModels;
 using System.Windows;
 
@@ -10,15 +11,10 @@ namespace HotelPereMaria
     public partial class VentanaReserva : Window
     {
 
-        ReservaVM ViewModel { get; set; }
-        User CurrentUser { get; set; }
-
-        public VentanaReserva(User currentUser)
+        public VentanaReserva(UserModel currentUser)
         {
             InitializeComponent();
-            CurrentUser = currentUser;
-            ViewModel = new ReservaVM(currentUser);
-            DataContext = ViewModel;
+            DataContext = new ReservaVM(currentUser);
         }
     }
 }

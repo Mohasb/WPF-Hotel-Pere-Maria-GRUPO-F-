@@ -1,4 +1,5 @@
 ﻿
+using HotelPereMaria.models;
 using HotelPereMaria.viewModels;
 using System.Windows;
 
@@ -41,7 +42,7 @@ namespace HotelPereMaria.VistaUser
 
         private void BtnReserva_Click(object sender, RoutedEventArgs e)
         {
-            User currentUser = viewModel.CurrentUser;
+            UserModel currentUser = viewModel.CurrentUser;
 
             VentanaReserva vr = new VentanaReserva(currentUser);
             vr.Show();

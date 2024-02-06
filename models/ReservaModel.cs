@@ -14,7 +14,7 @@ namespace HotelPereMaria.models
     {
         public string _id { get; set; }
         public List<Extra> extras { get; set; }
-        public User user { get; set; }
+        public UserModel user { get; set; }
         public int room_number { get; set; }
         public DateTime check_in_date { get; set; }
         public DateTime check_out_date { get; set; }
