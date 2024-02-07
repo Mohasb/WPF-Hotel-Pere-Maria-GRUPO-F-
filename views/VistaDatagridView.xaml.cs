@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace HotelPereMaria.vistaDatagrid
+namespace HotelPereMaria
 {
     /// <summary>
     /// Lógica de interacción para VistaDatagridView.xaml

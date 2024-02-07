@@ -4,13 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelPereMaria"
+        xmlns:vm="clr-namespace:HotelPereMaria.viewModels"
         mc:Ignorable="d"
-        Title="VentanaReserva" Height="1018" Width="1440">
+        Title="VentanaReserva" Height="1018" Width="1440" WindowState="Maximized">
+    <Window.Resources>
+        <!-- Referencia al archivo de recursos -->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../resources/resources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="/views/pereMariaFondo.png"/>
+    </Window.Background>
     <Grid>
         <Border CornerRadius="20" Background="#FFF7F5F5" Height="691" Width="1297">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="316*"/>
+                    <ColumnDefinition Width="500*"/>
                     <ColumnDefinition Width="203*"/>
                     <ColumnDefinition Width="259*"/>
                     <ColumnDefinition Width="259*"/>
@@ -27,33 +39,35 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Label Foreground="#103260" FontWeight="Black" Content="Crear Reserva" FontSize="38" Margin="20,0,20,0"/>
-                <Image Source="../Images/habitacion.png" Grid.Row="1" Grid.Column="0" Grid.RowSpan="6" Margin="20"/>
-                <Label Foreground="#103260" Grid.Row="7" Content="Habitación Standard" HorizontalAlignment="Left" Margin="20,0,0,0" FontSize="24"/>
-                <Label Foreground="#103260" Content="Fecha entrada" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Column="1" Grid.Row="1" FontSize="18"/>
-                <DatePicker Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0"/>
-                <Label Foreground="#103260" Content="Fecha salida" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Column="2" Grid.Row="1" FontSize="18"/>
-                <DatePicker Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Margin="20,0,0,0"/>
-                <Label Foreground="#103260" Content="Huéspedes" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Column="3" Grid.Row="1" FontSize="18"/>
-                <ComboBox Grid.Row="2" Grid.Column="3">
+                <Label Style="{StaticResource styleLabels}"  Content="Crear Reserva" />
+                <Image x:Name="imageRoom" Source="../Images/habitacion.png" Grid.Row="1" Grid.Column="0" Grid.RowSpan="6" Margin="20" Stretch="Fill"/>
+                <Label Style="{StaticResource styleLabels}" Grid.Row="7" Content="{Binding SelectedItem.Content, ElementName=comboboxTipoHab, Mode=OneWay}"/>
+                <Label Style="{StaticResource styleLabels}" Content="Fecha entrada"  Grid.Column="1" Grid.Row="1" FontSize="25" />
+                <DatePicker Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Label Style="{StaticResource styleLabels}" Content="Fecha salida"  Grid.Column="2" Grid.Row="1" FontSize="25" />
+                <DatePicker Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Label Style="{StaticResource styleLabels}" Content="Huéspedes"  Grid.Column="3" Grid.Row="1" FontSize="25" />
+                <ComboBox x:Name="tipoHabitacionComboBox" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center">
                     <ComboBoxItem>1</ComboBoxItem>
                     <ComboBoxItem>2</ComboBoxItem>
                     <ComboBoxItem>3</ComboBoxItem>
                     <ComboBoxItem>4</ComboBoxItem>
                 </ComboBox>
-                <Label Foreground="#103260" Content="Precio" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Column="1" Grid.Row="3" FontSize="18"/>
-                <Label Foreground="#103260" FontWeight="Black" Content="205,95€" HorizontalAlignment="Left" Margin="20,0,0,0" FontSize="38" Grid.Column="1" Grid.Row="4"/>
-                <Label Foreground="#103260" Content="Cliente" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Column="1" Grid.Row="5" FontSize="18"/>
-                <ComboBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="4" Margin="40,0,80,0">
-                    <ComboBoxItem>1</ComboBoxItem>
-                    <ComboBoxItem>2</ComboBoxItem>
-                    <ComboBoxItem>3</ComboBoxItem>
-                    <ComboBoxItem>4</ComboBoxItem>
+                <Label Style="{StaticResource styleLabels}" Content="Tipo Habitación"  Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" />
+                <Label Style="{StaticResource styleLabels}" FontWeight="Black" Content="205,95€"  FontSize="38" Grid.Column="5" Grid.Row="7"/>
+                <ComboBox x:Name="comboboxTipoHab" IsDropDownOpen="True" Style="{StaticResource ComboBoxStyle}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"  SelectedIndex="0" SelectionChanged="comboboxTipoHab_SelectionChanged">
+                    <ComboBoxItem>Habitación Estandar</ComboBoxItem>
+                    <ComboBoxItem>Habitación Individual</ComboBoxItem>
+                    <ComboBoxItem>Habitación Familiar</ComboBoxItem>
+                    <ComboBoxItem>Habitación Deluxe</ComboBoxItem>
+                    <ComboBoxItem>Habitación Suite</ComboBoxItem>
                 </ComboBox>
-                <Label Foreground="#103260" Content="Iván Nieto" HorizontalAlignment="Left" Margin="20,10,0,0" Grid.Column="1" Grid.Row="7" FontSize="18"/>
-                <Label Foreground="#103260" Content="ivan@peremaria.com" HorizontalAlignment="Left" Margin="20,10,0,0" Grid.Column="2" Grid.Row="7" FontSize="18"/>
+                <Label Style="{StaticResource styleLabels}"  Content="Usuario:" HorizontalAlignment="Center" Margin="20,10,0,0" Grid.Column="0" Grid.Row="8" />
+                <Label Style="{StaticResource styleLabels}" Content="{Binding CurrentUser.name}" HorizontalAlignment="Left" Margin="20,10,0,0" Grid.Column="1" Grid.Row="8" />
+                <Label Style="{StaticResource styleLabels}" Content="{Binding CurrentUser.email}" HorizontalAlignment="Left" Margin="20,10,0,0" Grid.Column="2" Grid.Row="8" />
+                <Label Style="{StaticResource styleLabels}" Content="TOTAL:" Margin="20,10,0,0" Grid.Column="4" Grid.Row="6" />
                 <Button Background="Transparent" BorderBrush="Transparent" Grid.Column="4" Grid.Row="8">
-                    <Border Background="#103260" Height="44" Width="164" CornerRadius="15">
+                    <Border Background="{StaticResource primaryColorBrush}" Height="44" Width="164" CornerRadius="15">
                         <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Crear Reserva</Label>
                     </Border>
                 </Button>
