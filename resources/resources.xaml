@@ -4,7 +4,6 @@
     <SolidColorBrush x:Key="primaryColorBrush">#103260</SolidColorBrush>
     <Color x:Key="primaryColor">#103260</Color>
     <SolidColorBrush x:Key="WhiteForegroundBrush" Color="White"/>
-<<<<<<< HEAD
     
     <!--DataGrid-->
     <Style x:Key="dgcHeaderStyle" TargetType="DataGridColumnHeader">
@@ -15,8 +14,6 @@
         <Setter Property="BorderThickness" Value="6" />
     </Style>
 
-=======
->>>>>>> cb0f080992b5c0f6a636ec67c5ee6a7e701c6880
     <!--Nav-->
     <Grid x:Key="Navigator">
         <Grid.ColumnDefinitions>
@@ -50,6 +47,7 @@
         </Border>
 
     </Grid>
+
     <!--Buttón Circular-->
     <Style x:Key="CircularButtonStyle" TargetType="Button">
         <Setter Property="Width" Value="50"/>
@@ -66,10 +64,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-<<<<<<< HEAD
     
-=======
->>>>>>> cb0f080992b5c0f6a636ec67c5ee6a7e701c6880
     <!--Boton eliminar-->
     <Style x:Key="PrimaryButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource primaryColorBrush}" />
@@ -98,6 +93,7 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
     <Style x:Key="PrimaryButtonStyleCambio" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource primaryColorBrush}" />
         <Setter Property="Foreground" Value="White" />
@@ -116,6 +112,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{DynamicResource primaryColorBrush}" />
@@ -125,6 +122,7 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    
     <!-- Style DataGrid-->
     <Style x:Key="BlueCellStyle" TargetType="DataGridCell">
         <Setter Property="Background" Value="{DynamicResource primaryColorBrush}"/>
@@ -135,9 +133,11 @@
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="Padding" Value="20"/>
     </Style>
+    
     <Style TargetType="{x:Type DataGridColumnHeader}">
         <Setter Property="HorizontalContentAlignment" Value="Center" />
     </Style>
+
     <!-- Style ListView-->
     <Style x:Key="BlueListViewStyle" TargetType="ListViewItem">
         <Setter Property="Background" Value="{DynamicResource primaryColorBrush}"/>
@@ -151,8 +151,8 @@
                 <Setter Property="Foreground" Value="{DynamicResource primaryColorBrush}"/>
             </Trigger>
         </Style.Triggers>
-        
     </Style>
+
      <!--Style combobox Rooms-->
     <Style x:Key="ComboBoxStyle" TargetType="ComboBox">
         <Setter Property="Foreground" Value="{StaticResource WhiteForegroundBrush}" />
@@ -211,14 +211,13 @@
             </Setter.Value>
         </Setter>
     </Style>
-     <!--Labels-->
+    
+    <!--Labels-->
     <Style x:Key="styleLabels" TargetType="Label">
         <Setter Property="Foreground" Value="{StaticResource primaryColorBrush}" />
         <Setter Property="FontSize" Value="30" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="HorizontalAlignment" Value="Center" />
-           
     </Style>
-
 
 </ResourceDictionary>
