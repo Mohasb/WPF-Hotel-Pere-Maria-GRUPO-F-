@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelPereMaria"
         mc:Ignorable="d"
-        Title="VentanaBuscador" Height="900" Width="1440">
+        Title="VentanaBuscador" Height="1018" Width="1440">
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel>
@@ -24,12 +24,12 @@
                     </Button>
                     <Button x:Name="btnEditRoom" Background="Transparent" BorderBrush="Transparent" Width="170" Height="48" Margin="0,0,0,0">
                         <Border Background="#103260" Height="44" Width="164" CornerRadius="15">
-                            <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Editar habitación</Label>
+                            <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Editar/Eliminar habitación</Label>
                         </Border>
                     </Button>
                 </StackPanel>
-                <!--<Label Foreground="#103260" FontSize="52" Margin="45,0,0,0" >Buscador:</Label>-->
-                <!--<Border Width="1352" Height="223" CornerRadius="20" Background="#FFF7F5F5">
+                <Label Foreground="#103260" FontSize="52" Margin="45,0,0,0" >Buscador:</Label>
+                <Border Width="1352" Height="223" CornerRadius="20" Background="#FFF7F5F5">
                     <StackPanel Orientation="Horizontal">
                         <StackPanel>
                             <Label Margin="20,10,0,0" FontSize="14">Número de Huéspedes</Label>
@@ -89,7 +89,7 @@
 
                     </StackPanel>
 
-                </Border>-->
+                </Border>
                 <Label FontSize="52" Margin="45,0,0,0">Habitaciones :</Label>
                 <StackPanel Orientation="Horizontal" Margin="20">
                     <StackPanel>
