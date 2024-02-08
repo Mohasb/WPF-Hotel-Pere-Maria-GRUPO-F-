@@ -43,7 +43,6 @@ namespace HotelPereMaria.VistaUser
         private void BtnReserva_Click(object sender, RoutedEventArgs e)
         {
             UserModel currentUser = viewModel.CurrentUser;
-
             VentanaReserva vr = new VentanaReserva(currentUser);
             vr.Show();
         }
