@@ -12,7 +12,6 @@ namespace HotelPereMaria.models
 
     public class ReservaModel : INotifyPropertyChanged
     {
-        public string _id { get; set; }
         public List<Extra> extras { get; set; }
         public UserModel user { get; set; }
         public int room_number { get; set; }
@@ -22,6 +21,7 @@ namespace HotelPereMaria.models
         public DateTime cancelation_date { get; set; }
 
         private int reservationId;
+        public string roomType { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -35,6 +35,19 @@ namespace HotelPereMaria.models
                 {
                     reservationId = value;
                     OnPropertyChanged(nameof(ReservationId));
+                }
+            }
+        }
+
+        public string RoomType
+        {
+            get { return roomType; }
+            set
+            {
+                if (roomType != value)
+                {
+                    roomType = value;
+                    OnPropertyChanged(nameof(RoomType));
                 }
             }
         }
