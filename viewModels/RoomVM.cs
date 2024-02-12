@@ -20,8 +20,5 @@ namespace HotelPereMaria.viewModels
     }
 
 
-    public async Task LoadRooms (string userEmail)
-    {
-
-    }
+    
 }
