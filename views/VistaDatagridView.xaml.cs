@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -24,6 +25,8 @@ namespace HotelPereMaria
         {
             InitializeComponent();
             dgUsers.ItemsSource = LoadCollectionData();
+            lvUsers.ItemsSource = LoadCollectionData();
+
         }
         private ObservableCollection<User> LoadCollectionData()
         {
@@ -106,6 +109,18 @@ namespace HotelPereMaria
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void toggleButton_Checked(object sender, RoutedEventArgs e)
+        {
+            dgUsers.Visibility = toggleBtn.IsChecked == true ? Visibility.Visible : Visibility.Collapsed;
+            lvUsers.Visibility = toggleBtn.IsChecked == true ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        private void toggleButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            dgUsers.Visibility = toggleBtn.IsChecked == true ? Visibility.Visible : Visibility.Collapsed;
+            lvUsers.Visibility = toggleBtn.IsChecked == true ? Visibility.Collapsed : Visibility.Visible;
         }
     }
 }
