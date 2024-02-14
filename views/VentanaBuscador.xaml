@@ -123,9 +123,9 @@
                         </Button>
                     </StackPanel>
                     <StackPanel>
-                        <Image Source="../Images/habitacion.png" Width="266" Height="335" Margin="40,10,0,0"/>
-                        <Label Margin="30,10,0,0" FontSize="27" HorizontalAlignment="Center">Habitación doble</Label>
-                        <Label Margin="30,0,0,0" FontSize="18" HorizontalAlignment="Center" Foreground="#103260">36€ / noche</Label>
+                        <Image Source="{Binding ImageUrl}" Width="266" Height="335" Margin="40,10,0,0"/>
+                        <TextBlock Text="{Binding Type}" Margin="30,10,0,0" FontSize="27" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Text="{Binding PricePerNight}" Margin="30,0,0,0" FontSize="18" HorizontalAlignment="Center" Foreground="#103260"></TextBlock>
                         <Button x:Name="btnReservar4" Background="Transparent" BorderBrush="Transparent"  Margin="40,10,0,0" Width="170" Height="48" Click="btnReservar4_Click">
                             <Border Background="#103260" Height="44" Width="164" CornerRadius="15">
                                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Reservar habitación</Label>
