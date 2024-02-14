@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -153,9 +154,8 @@ namespace HotelPereMaria.viewModels
         public async Task<bool> makeReservation(DateTime fechaEntrada, DateTime fechaSalida, int numeroHuespedes, string tipoHabitacion, bool wifiSelected, bool allInclusiveSelected, bool gymSelected, bool spaSelected, bool parkingSelected)
         {
 
-            // Encontrar la posición de ":"
-            int indexOfColon = TipoHabitacion.IndexOf(':');
-            string room = TipoHabitacion.Substring(indexOfColon + 1).Trim();
+            int index = TipoHabitacion.IndexOf("Habitación");
+            string room = TipoHabitacion.Substring(index + 10).Trim();
 
 
             PostReservation reservationData = new PostReservation
@@ -196,6 +196,7 @@ namespace HotelPereMaria.viewModels
 
                 using (HttpClient client = new HttpClient(handler))
                 {
+
                     StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
                     HttpResponseMessage response = await client.PostAsync(apiUrl, content);
@@ -224,8 +225,6 @@ namespace HotelPereMaria.viewModels
                 Console.WriteLine(ex.Message);
                 return false;
             }
-
-
         }
     }
 }

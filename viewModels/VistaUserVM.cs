@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -99,6 +100,7 @@ namespace HotelPereMaria.VistaUser
 
                     using (HttpClient client = new HttpClient(handler))
                     {
+
                         HttpResponseMessage response = await client.DeleteAsync(apiUrl);
 
                         if (!response.IsSuccessStatusCode)
@@ -150,6 +152,10 @@ namespace HotelPereMaria.VistaUser
 
                     using (HttpClient client = new HttpClient(handler))
                     {
+                        string token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1oQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNzY4OTA4MCwiZXhwIjoxNzA3Njk2MjgwfQ.tCcUzwXUr-9mNmMorHw0Gd9iFLYtyjH-2uU7I4p8zHA";
+                        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Authorization", token);
+                        MessageBox.Show(client.DefaultRequestHeaders.Authorization.ToString());
+
                         HttpResponseMessage response = await client.GetAsync(apiUrl);
 
                         if (response.IsSuccessStatusCode)
