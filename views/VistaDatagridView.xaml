@@ -1,11 +1,11 @@
-﻿<Window x:Name="___Sin_nombre_" x:Class="HotelPereMaria.VistaDatagridView"
+﻿<Window x:Name="UsersDgAndLv" x:Class="HotelPereMaria.VistaDatagridView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelPereMaria"
         mc:Ignorable="d"
-        Title="Datagrid" Width="1280"
+        Title="UsersDatagridAndListView" Width="1280"
         Height="720" WindowState="Maximized" WindowStartupLocation="CenterOwner">
 
     <Window.Resources>
@@ -113,73 +113,43 @@
                     ItemsSource="{Binding Users}" BorderBrush="Transparent" FontWeight="Medium">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="ID">
+                            <GridViewColumn Header="ID" Width="40">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock>
                                             <Run Text="#" />
-                                            <Run Text="{Binding ReservationId}" />
+                                            <Run Text="{Binding ID}" />
                                         </TextBlock>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
-                            <GridViewColumn Header="Habitación" DisplayMemberBinding="{Binding room_number}" />
-
-                            <GridViewColumn Header="CheckIn">
+                            <GridViewColumn Header="Foto" Width="150">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock>
-                                            <Run Text="{Binding check_in_date, StringFormat=\{0:dd/MM/yy HH:mm\}}" />
-                                        </TextBlock>
+                                        <Image Source="{Binding Foto}" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
+                            
+                            <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding Nombre}" Width="300" />
+                            <GridViewColumn Header="Rol" DisplayMemberBinding="{Binding Rol}" Width="300" />
 
-                            <GridViewColumn Header="CheckOut">
+                            <GridViewColumn Header="VIP" Width="100">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock>
-                                            <Run Text="{Binding check_out_date, StringFormat=\{0:dd/MM/yy HH:mm\}}" />
-                                        </TextBlock>
+                                        <CheckBox IsChecked="{Binding IsVIP}" IsEnabled="False" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-
-                            <GridViewColumn Header="Extras">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <ItemsControl ItemsSource="{Binding extras}">
-                                            <ItemsControl.ItemTemplate>
-                                                <DataTemplate>
-                                                    <TextBlock>
-                                                        <Run Text="{Binding name}" />
-                                                        <Run Text="(+" />
-                                                        <Run Text="{Binding price}" />
-                                                        <Run Text="€) " />
-                                                    </TextBlock>
-                                                </DataTemplate>
-                                            </ItemsControl.ItemTemplate>
-                                            <ItemsControl.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <StackPanel Orientation="Vertical"/>
-                                                </ItemsPanelTemplate>
-                                            </ItemsControl.ItemsPanel>
-                                        </ItemsControl>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-
-                            <GridViewColumn Header="Total">
-                                <GridViewColumn.DisplayMemberBinding>
-                                    <Binding Path="TotalPrice" StringFormat="{}{0:C}" />
-                                </GridViewColumn.DisplayMemberBinding>
                             </GridViewColumn>
 
                             <GridViewColumn Header="Acciones">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Style="{StaticResource PrimaryButtonStyle}" Content="Eliminar" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" Margin="5"/>
+                                        <StackPanel>
+                                            <Button Style="{StaticResource PrimaryButtonStyle}" Content="Eliminar" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" Margin="5"/>
+                                            <Button Style="{StaticResource PrimaryButtonStyle}" Content="Editar" Command="{Binding DataContext.EditCommad, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" Margin="5"/>
+                                        </StackPanel>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
