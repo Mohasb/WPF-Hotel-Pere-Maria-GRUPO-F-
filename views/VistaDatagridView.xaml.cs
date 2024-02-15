@@ -113,14 +113,14 @@ namespace HotelPereMaria
         private void toggleButton_Checked(object sender, RoutedEventArgs e)
         {
             dgUsers.Visibility = toggleBtn.IsChecked == true ? Visibility.Visible : Visibility.Collapsed;
-            lblIconBtn.Content = "DataGrid";
+            lblIconBtn.Content = "ListView";
             lvUsers.Visibility = toggleBtn.IsChecked == true ? Visibility.Collapsed : Visibility.Visible;
         }
 
         private void toggleButton_Unchecked(object sender, RoutedEventArgs e)
         {
             dgUsers.Visibility = toggleBtn.IsChecked == true ? Visibility.Visible : Visibility.Collapsed;
-            lblIconBtn.Content = "ListView";
+            lblIconBtn.Content = "DataGrid";
             lvUsers.Visibility = toggleBtn.IsChecked == true ? Visibility.Collapsed : Visibility.Visible;
         }
     }

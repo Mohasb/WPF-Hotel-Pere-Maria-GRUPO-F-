@@ -35,7 +35,7 @@
                     <ToggleButton Style="{StaticResource PrimaryButtonStyleCambio}" Checked="toggleButton_Checked" Unchecked="toggleButton_Unchecked" Name="toggleBtn" Canvas.Right="20" Background="Transparent" BorderBrush="Transparent">
                         <StackPanel Orientation="Horizontal">
                             <Image Name="imgIconBtn" Source="/Images/ListViewIcon.png" Width="25" />
-                            <Label Name="lblIconBtn" Canvas.Right="10" Content="ListView" FontWeight="Medium" FontSize="21" Margin="5" />
+                            <Label Name="lblIconBtn" Canvas.Right="10" Content="DataGrid" FontWeight="Medium" FontSize="21" Margin="5" />
                         </StackPanel>
                     </ToggleButton>
                 </Canvas>
