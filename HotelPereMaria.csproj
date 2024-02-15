@@ -14,6 +14,11 @@
     <None Remove="Images\logoBlanco.png" />
     <None Remove="Images\logoNeutro.png" />
     <None Remove="Images\pereMariaFondo.png" />
+    <None Remove="Images\rooms\deluxe.jpg" />
+    <None Remove="Images\rooms\estandar.jpg" />
+    <None Remove="Images\rooms\familiar.jpg" />
+    <None Remove="Images\rooms\Individual.jpg" />
+    <None Remove="Images\rooms\suite.jpg" />
     <None Remove="views\pereMariaFondo.png" />
   </ItemGroup>
 
@@ -43,6 +48,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\rooms\deluxe.jpg" />
+    <Resource Include="Images\rooms\estandar.jpg" />
+    <Resource Include="Images\rooms\familiar.jpg" />
+    <Resource Include="Images\rooms\Individual.jpg" />
+    <Resource Include="Images\rooms\suite.jpg" />
     <Resource Include="views\logoAzul.png" />
     <Resource Include="views\pereMariaFondo.png" />
   </ItemGroup>

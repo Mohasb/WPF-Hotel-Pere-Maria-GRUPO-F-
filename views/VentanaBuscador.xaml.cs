@@ -32,26 +32,26 @@ namespace HotelPereMaria
 
         private void btnReservar1_Click(object sender, RoutedEventArgs e)
         {
-            VentanaReserva vtnReserva = new VentanaReserva();
-            vtnReserva.Show();
+            //VentanaReserva vtnReserva = new VentanaReserva();
+            //vtnReserva.Show();
         }
 
         private void btnReservar2_Click(object sender, RoutedEventArgs e)
         {
-            VentanaReserva vtnReserva = new VentanaReserva();
-            vtnReserva.Show();
+            //VentanaReserva vtnReserva = new VentanaReserva();
+            //vtnReserva.Show();
         }
 
         private void btnReservar3_Click(object sender, RoutedEventArgs e)
         {
-            VentanaReserva vtnReserva = new VentanaReserva();
-            vtnReserva.Show();
+            //VentanaReserva vtnReserva = new VentanaReserva();
+            //vtnReserva.Show();
         }
 
         private void btnReservar4_Click(object sender, RoutedEventArgs e)
         {
-            VentanaReserva vtnReserva = new VentanaReserva();
-            vtnReserva.Show();
+            //VentanaReserva vtnReserva = new VentanaReserva();
+            //vtnReserva.Show();
         }
     }
 }
