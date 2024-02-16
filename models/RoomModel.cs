@@ -9,13 +9,20 @@ namespace HotelPereMaria.models
 {
     public class RoomModel
     {
-        public int RoomNumber { get; set; }
-        public string Type { get; set; }
-        public string Description { get; set; }
-        public double Price_per_night { get; set; }
-        public int Rate { get; set; }
-        public int MaxOccupancy { get; set; }
-        public bool IsAvailable { get; set; }
-        public string Image { get; set; }
+        public string _id { get; set; }
+        public int room_number { get; set; }
+        public string type { get; set; }
+        public string description { get; set; }
+        public List<Image> images { get; set; }
+        public double price_per_night { get; set; }
+        public int rate { get; set; }
+        public int max_occupancy { get; set; }
+        public bool isAvailable { get; set; }
+    }
+
+    public class Image
+    {
+        public string _id { get; set; }
+        public string image { get; set; }
     }
 }

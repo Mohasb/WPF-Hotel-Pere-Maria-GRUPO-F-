@@ -25,6 +25,7 @@ namespace HotelPereMaria
         {
             InitializeComponent();
             _roomVM = new RoomVM();
+            DataContext = _roomVM;
             this.LoadRooms();
         }
 

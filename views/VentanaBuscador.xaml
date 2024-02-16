@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelPereMaria"
         mc:Ignorable="d"
-        Title="VentanaBuscador" Height="1018" Width="1440">
+        Title="VentanaBuscador" Height="818" Width="1340">
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel>
@@ -17,7 +17,7 @@
                         <Label FontSize="21" Margin="0,10,0,0">Bienvenido Iván</Label>
                         <Button FontSize="21" Foreground="#B5B5B5" Margin="0,0,0,0" Background="Transparent" Click="Button_Click" BorderBrush="Transparent">Cerrar sesión</Button>
                     </StackPanel>
-                    <Button x:Name="btnAddReserva" Background="Transparent" BorderBrush="Transparent" Width="170" Height="48" Margin="600,0,0,0">
+                    <Button x:Name="btnAddReserva" Background="Transparent" BorderBrush="Transparent" Width="170" Height="48" Margin="500,0,0,0">
                         <Border Background="#103260" Height="44" Width="164" CornerRadius="15">
                             <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Añadir habitación</Label>
                         </Border>
@@ -93,39 +93,39 @@
                 <Label FontSize="52" Margin="45,0,0,0">Habitaciones :</Label>
                 <StackPanel Orientation="Horizontal" Margin="20">
                     <StackPanel>
-                        <Image Source="../Images/habitacion.png" Width="266" Height="335" Margin="109,10,0,0"/>
-                        <Label Margin="109,10,0,0" FontSize="27" HorizontalAlignment="Center" >Habitación doble</Label>
-                        <Label Margin="109,0,0,0" FontSize="18" HorizontalAlignment="Center" Foreground="#103260">36€ / noche</Label>
-                        <Button x:Name="btnReservar1" Background="Transparent" BorderBrush="Transparent"  Margin="109,10,0,0" Width="170" Height="48" Click="btnReservar1_Click">
+                        <Image Source="{Binding Rooms[0].images[0].image}" Width="266" Height="335" Margin="109,10,0,0"/>
+                        <TextBlock Text="{Binding Rooms[0].type}" Margin="109,10,0,0" FontSize="27" HorizontalAlignment="Center" ></TextBlock>
+                        <TextBlock Text="{Binding Rooms[0].price_per_night}" Margin="109,0,0,0" FontSize="18" HorizontalAlignment="Center" Foreground="#103260"></TextBlock>
+                        <Button x:Name="btnReservar1" Command="{Binding DataContext.ReserveRoomCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding Rooms[0]}" Background="Transparent" BorderBrush="Transparent"  Margin="109,10,0,0" Width="170" Height="48" Click="btnReservar1_Click">
                             <Border Background="#103260" Height="44" Width="164" CornerRadius="15">
                                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Reservar habitación</Label>
                             </Border>
                         </Button>
                     </StackPanel>
                     <StackPanel>
-                        <Image Source="../Images/habitacion.png" Width="266" Height="335" Margin="40,10,0,0"/>
-                        <Label Margin="30,10,0,0" FontSize="27" HorizontalAlignment="Center">Habitación doble</Label>
-                        <Label Margin="30,0,0,0" FontSize="18" HorizontalAlignment="Center" Foreground="#103260">36€ / noche</Label>
-                        <Button x:Name="btnReservar2" Background="Transparent" BorderBrush="Transparent"  Margin="40,10,0,0" Width="170" Height="48" Click="btnReservar2_Click">
+                        <Image Source="{Binding Rooms[2].images[0].image}" Width="266" Height="335" Margin="40,10,0,0"/>
+                        <TextBlock Text="{Binding Rooms[2].type}" Margin="30,10,0,0" FontSize="27" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Text="{Binding Rooms[2].price_per_night}" Margin="30,0,0,0" FontSize="18" HorizontalAlignment="Center" Foreground="#103260"></TextBlock>
+                        <Button x:Name="btnReservar2" Command="{Binding DataContext.ReserveRoomCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding Rooms[0]}" Background="Transparent" BorderBrush="Transparent"  Margin="40,10,0,0" Width="170" Height="48" Click="btnReservar2_Click">
                             <Border Background="#103260" Height="44" Width="164" CornerRadius="15">
                                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Reservar habitación</Label>
                             </Border>
                         </Button>
                     </StackPanel>
                     <StackPanel>
-                        <Image Source="../Images/habitacion.png" Width="266" Height="335" Margin="40,10,0,0"/>
-                        <Label Margin="30,10,0,0" FontSize="27" HorizontalAlignment="Center">Habitación doble</Label>
-                        <Label Margin="30,0,0,0" FontSize="18" HorizontalAlignment="Center" Foreground="#103260">36€ / noche</Label>
-                        <Button x:Name="btnReservar3" Background="Transparent" BorderBrush="Transparent"  Margin="40,10,0,0" Width="170" Height="48" Click="btnReservar3_Click">
+                        <Image Source="{Binding Rooms[4].images[4].image}" Width="266" Height="335" Margin="40,10,0,0"/>
+                        <TextBlock Text="{Binding Rooms[4].type}" Margin="30,10,0,0" FontSize="27" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Text="{Binding Rooms[4].price_per_night}" Margin="30,0,0,0" FontSize="18" HorizontalAlignment="Center" Foreground="#103260"></TextBlock>
+                        <Button x:Name="btnReservar3" Command="{Binding DataContext.ReserveRoomCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding Rooms[0]}" Background="Transparent" BorderBrush="Transparent"  Margin="40,10,0,0" Width="170" Height="48" Click="btnReservar3_Click">
                             <Border Background="#103260" Height="44" Width="164" CornerRadius="15">
                                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Reservar habitación</Label>
                             </Border>
                         </Button>
                     </StackPanel>
                     <StackPanel>
-                        <Image Source="{Binding Rooms[3].Image}" Width="266" Height="335" Margin="40,10,0,0"/>
-                        <TextBlock Text="{Binding Rooms[3].Type}" Margin="30,10,0,0" FontSize="27" HorizontalAlignment="Center"></TextBlock>
-                        <TextBlock Text="{Binding Rooms[3].Price_per_night}" Margin="30,0,0,0" FontSize="18" HorizontalAlignment="Center" Foreground="#103260"></TextBlock>
+                        <Image Source="{Binding Rooms[6].images[6].image}" Width="266" Height="335" Margin="40,10,0,0"/>
+                        <TextBlock Text="{Binding Rooms[6].type}" Margin="30,10,0,0" FontSize="27" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Text="{Binding Rooms[6].price_per_night}" Margin="30,0,0,0" FontSize="18" HorizontalAlignment="Center" Foreground="#103260"></TextBlock>
                         <Button x:Name="btnReservar4" Command="{Binding DataContext.ReserveRoomCommand, RelativeSource={RelativeSource AncestorType=Window}}" CommandParameter="{Binding Rooms[0]}" Background="Transparent" BorderBrush="Transparent"  Margin="40,10,0,0" Width="170" Height="48" Click="btnReservar4_Click">
                             <Border Background="#103260" Height="44" Width="164" CornerRadius="15">
                                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Reservar habitación</Label>
