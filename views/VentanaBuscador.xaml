@@ -79,7 +79,7 @@
                                         <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">Ofertas</Label>
                                     </Border>
                                 </Button>
-                                <Button Background="Transparent" BorderBrush="Transparent" Margin="20,70,0,0">
+                                <Button Background="Transparent" BorderBrush="Transparent" Margin="20,70,0,0" Click="Button_Click_1">
                                     <Border Background="#103260" Height="44" Width="164" CornerRadius="15">
                                         <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Buscar</Label>
                                     </Border>

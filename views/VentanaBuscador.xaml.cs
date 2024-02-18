@@ -1,4 +1,5 @@
 ﻿using HotelPereMaria.viewModels;
+using HotelPereMaria.VistaUser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,6 +63,12 @@ namespace HotelPereMaria
         {
             //VentanaReserva vtnReserva = new VentanaReserva();
             //vtnReserva.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            VistaUserView vu = new VistaUserView();
+            vu.Show();
         }
     }
 }
