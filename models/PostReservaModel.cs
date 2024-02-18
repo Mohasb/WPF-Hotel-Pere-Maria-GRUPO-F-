@@ -6,29 +6,60 @@ using System.Threading.Tasks;
 
 namespace HotelPereMaria.models
 {
-    public class PostExtra
+    using Newtonsoft.Json;
+
+    namespace HotelPereMaria.models
     {
-        public string Name { get; set; }
-        public bool Value { get; set; }
+        public class PostExtra
+        {
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("value")]
+            public bool Value { get; set; }
+        }
+
+        public class User
+        {
+            [JsonProperty("name")]
+            public string Name { get; set; }
+
+            [JsonProperty("email")]
+            public string Email { get; set; }
+
+            [JsonProperty("user_name")]
+            public string UserName { get; set; }
+
+            [JsonProperty("role")]
+            public string Role { get; set; }
+
+            [JsonProperty("phone")]
+            public int Phone { get; set; }
+        }
+
+        public class PostReservation
+        {
+            [JsonProperty("extras")]
+            public List<PostExtra> Extras { get; set; }
+
+            [JsonProperty("user")]
+            public User User { get; set; }
+
+            [JsonProperty("check_in_date")]
+            public DateTime CheckInDate { get; set; }
+
+            [JsonProperty("check_out_date")]
+            public DateTime CheckOutDate { get; set; }
+
+            [JsonProperty("cancelationDate")]
+            public DateTime CancelationDate { get; set; }
+
+            [JsonProperty("roomType")]
+            public string RoomType { get; set; }
+
+            [JsonProperty("ocupation")]
+            public int Ocupation { get; set; }
+        }
     }
 
-    public class User
-    {
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string UserName { get; set; }
-        public string Role { get; set; }
-        public int Phone { get; set; }
-    }
-
-    public class PostReservation
-    {
-        public List<PostExtra> Extras { get; set; }
-        public User User { get; set; }
-        public DateTime CheckInDate { get; set; }
-        public DateTime CheckOutDate { get; set; }
-        public DateTime CancelationDate { get; set; }
-        public string roomType { get; set; }
-        public int numeroHuespedes {  get; set; }
-    }
 }

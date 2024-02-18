@@ -19,6 +19,7 @@ namespace HotelPereMaria.models
         public DateTime check_out_date { get; set; }
         public double price_per_night { get; set; }
         public DateTime cancelation_date { get; set; }
+        public Double total_price { get; set; }
 
         private int reservationId;
         public string roomType { get; set; }
@@ -61,8 +62,7 @@ namespace HotelPereMaria.models
         {
             get
             {
-                double extrasPrice = extras?.Sum(extra => extra.price) ?? 0;
-                return price_per_night + extrasPrice;
+                return total_price;
             }
         }
         protected virtual void OnPropertyChanged(string propertyName)
