@@ -17,6 +17,7 @@ namespace HotelPereMaria.VistaUser
         public event PropertyChangedEventHandler PropertyChanged;
 
         private ObservableCollection<ReservaModel> _reservations;
+        private ObservableCollection<UserModel> _users;
         private UserModel _currentUser;
 
         private RelayCommand _deleteCommand;
@@ -138,6 +139,19 @@ namespace HotelPereMaria.VistaUser
             }
         }
 
+        public ObservableCollection<UserModel> Users
+        {
+            get { return _users; }
+            set
+            {
+                if (_users != value)
+                {
+                    _users = value;
+                    OnPropertyChanged(nameof(Users));
+                }
+            }
+        }
+
         public async Task LoadReservations(string userEmail)
         {
             try
@@ -170,6 +184,41 @@ namespace HotelPereMaria.VistaUser
                                 reservations[i].check_in_date = new DateTime(reservations[i].check_in_date.Year, reservations[i].check_in_date.Month, reservations[i].check_in_date.Day, 12, 0, 0);
                                 reservations[i].check_out_date = new DateTime(reservations[i].check_out_date.Year, reservations[i].check_out_date.Month, reservations[i].check_in_date.Day, 14, 0, 0);
                             }
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Error: {response.StatusCode}");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+        }
+
+        public async Task LoadUsers()
+        {
+            try
+            {
+                string apiUrl = $"https://localhost/api/users/";
+                string token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1oQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwODAxMjgzOCwiZXhwIjoxNzM5NTcwNDM4fQ.AFJvP5VVs04zQ8w9pxSYZF9gYA6nnVZol8hMUy92oRc";
+
+                using (HttpClientHandler handler = new HttpClientHandler())
+                {
+                    handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
+
+                    using (HttpClient client = new HttpClient(handler))
+                    {
+                        HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            string json = await response.Content.ReadAsStringAsync();
+                            var users = JsonConvert.DeserializeObject<ObservableCollection<UserModel>>(json);
+
+                            Users = users;
                         }
                         else
                         {

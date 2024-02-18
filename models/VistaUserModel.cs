@@ -16,15 +16,17 @@ namespace HotelPereMaria.VistaUser
         private string password;
         private string role;
         private ObservableCollection<ReservaModel> reservations;
+        private ObservableCollection<UserModel> users;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public VistaUserModel()
         {
             reservations = new ObservableCollection<ReservaModel>();
+            users = new ObservableCollection<UserModel>();
         }
 
-        public VistaUserModel(string userId, string userName, string email, string password, string role, List<ReservaModel> reservations)
+        public VistaUserModel(string userId, string userName, string email, string password, string role, List<ReservaModel> reservations, List<UserModel> users)
         {
             this.userId = userId;
             this.userName = userName;
@@ -32,6 +34,7 @@ namespace HotelPereMaria.VistaUser
             this.password = password;
             this.role = role;
             this.reservations = new ObservableCollection<ReservaModel>(reservations);
+            this.users = new ObservableCollection<UserModel>(users);
         }
 
         public string UserId
@@ -108,6 +111,19 @@ namespace HotelPereMaria.VistaUser
                 {
                     reservations = value;
                     OnPropertyChanged(nameof(Reservations));
+                }
+            }
+        }
+        
+        public ObservableCollection<UserModel> Users
+        {
+            get => users;
+            set
+            {
+                if (users != value)
+                {
+                    users = value;
+                    OnPropertyChanged(nameof(Users));
                 }
             }
         }
