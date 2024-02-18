@@ -1,9 +1,12 @@
 ﻿using HotelPereMaria.models;
+using HotelPereMaria.models.HotelPereMaria.models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -153,9 +156,8 @@ namespace HotelPereMaria.viewModels
         public async Task<bool> makeReservation(DateTime fechaEntrada, DateTime fechaSalida, int numeroHuespedes, string tipoHabitacion, bool wifiSelected, bool allInclusiveSelected, bool gymSelected, bool spaSelected, bool parkingSelected)
         {
 
-            // Encontrar la posición de ":"
-            int indexOfColon = TipoHabitacion.IndexOf(':');
-            string room = TipoHabitacion.Substring(indexOfColon + 1).Trim();
+            int index = TipoHabitacion.IndexOf("Habitación");
+            string room = TipoHabitacion.Substring(index + 10).Trim();
 
 
             PostReservation reservationData = new PostReservation
@@ -166,16 +168,17 @@ namespace HotelPereMaria.viewModels
                     Email = CurrentUser.email,
                     UserName = CurrentUser.user_name,
                     Role = CurrentUser.role,
+                    Birth_date = CurrentUser.birth_date,
                     Phone = int.Parse(CurrentUser.phone) 
                 },
                 CheckInDate = fechaEntrada,
                 CheckOutDate = fechaSalida,
                 CancelationDate = DateTime.MinValue,
-                roomType = room,
-                numeroHuespedes = numeroHuespedes,
+                RoomType = room,
+                Ocupation = numeroHuespedes,
                 Extras = new List<PostExtra>
                     {
-                        new PostExtra { Name = "All Inclusive", Value = allInclusiveSelected },
+                        new PostExtra { Name = "Completo", Value = allInclusiveSelected },
                         new PostExtra { Name = "Gym", Value = gymSelected },
                         new PostExtra { Name = "Spa", Value = spaSelected },
                         new PostExtra { Name = "Parking", Value = parkingSelected }
@@ -194,8 +197,13 @@ namespace HotelPereMaria.viewModels
                 using HttpClientHandler handler = new HttpClientHandler();
                 handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
 
+
+
                 using (HttpClient client = new HttpClient(handler))
                 {
+                    string token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvcnJlbzFAZXhhbXBsZS5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTcwODI1ODAyOH0.MZk5APRdNL6B4p495PV8XoKnYhiOp-eXkgCw-DiVDSg";
+                    client.DefaultRequestHeaders.Add("Authorization", token);
+
                     StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
                     HttpResponseMessage response = await client.PostAsync(apiUrl, content);
@@ -207,7 +215,9 @@ namespace HotelPereMaria.viewModels
                     }
                     else
                     {
-                        MessageBox.Show($"Error al realizar la reserva. Código de estado: {response.StatusCode}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        string responseBody = await response.Content.ReadAsStringAsync();
+                        dynamic result = JObject.Parse(responseBody);
+                        MessageBox.Show($"{result.message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         return false;
                     }
                 }
@@ -224,8 +234,6 @@ namespace HotelPereMaria.viewModels
                 Console.WriteLine(ex.Message);
                 return false;
             }
-
-
         }
     }
 }

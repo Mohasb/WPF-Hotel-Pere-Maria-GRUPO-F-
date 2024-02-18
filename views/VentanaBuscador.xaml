@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelPereMaria"
         mc:Ignorable="d"
-        Title="VentanaBuscador" Height="818" Width="1340">
+        Title="VentanaBuscador" Height="818" Width="1340" WindowState="Maximized">
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel>
@@ -79,7 +79,7 @@
                                         <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">Ofertas</Label>
                                     </Border>
                                 </Button>
-                                <Button Background="Transparent" BorderBrush="Transparent" Margin="20,70,0,0">
+                                <Button Background="Transparent" BorderBrush="Transparent" Margin="20,70,0,0" Click="Button_Click_1">
                                     <Border Background="#103260" Height="44" Width="164" CornerRadius="15">
                                         <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Buscar</Label>
                                     </Border>
