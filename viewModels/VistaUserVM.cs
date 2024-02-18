@@ -152,9 +152,9 @@ namespace HotelPereMaria.VistaUser
 
                     using (HttpClient client = new HttpClient(handler))
                     {
-                        string token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1oQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNzY4OTA4MCwiZXhwIjoxNzA3Njk2MjgwfQ.tCcUzwXUr-9mNmMorHw0Gd9iFLYtyjH-2uU7I4p8zHA";
-                        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Authorization", token);
-                        MessageBox.Show(client.DefaultRequestHeaders.Authorization.ToString());
+                        string token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvcnJlbzFAZXhhbXBsZS5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTcwODI1ODAyOH0.MZk5APRdNL6B4p495PV8XoKnYhiOp-eXkgCw-DiVDSg";
+                        client.DefaultRequestHeaders.Add("Authorization", token);
+
 
                         HttpResponseMessage response = await client.GetAsync(apiUrl);
 

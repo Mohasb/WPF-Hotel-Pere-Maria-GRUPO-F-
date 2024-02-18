@@ -91,8 +91,8 @@
                                             <DataGridTemplateColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <TextBlock VerticalAlignment="Center" Padding="10">
-                         <Run Text="#" />
-                         <Run Text="{Binding ReservationId}" />
+                                                         <Run Text="#" />
+                                                         <Run Text="{Binding ReservationId}" />
                                                     </TextBlock>
                                                 </DataTemplate>
                                             </DataGridTemplateColumn.CellTemplate>
@@ -134,10 +134,10 @@
                                                         <ItemsControl.ItemTemplate>
                                                             <DataTemplate>
                                                                 <TextBlock VerticalAlignment="Center" Padding="10">
-                                     <Run Text="{Binding name}" />
-                                     <Run Text="(+" />
-                                     <Run Text="{Binding price}" />
-                                     <Run Text="€) " />
+                                                                     <Run Text="{Binding name}" />
+                                                                     <Run Text="(+" />
+                                                                     <Run Text="{Binding price}" />
+                                                                     <Run Text="€) " />
                                                                 </TextBlock>
                                                             </DataTemplate>
                                                         </ItemsControl.ItemTemplate>
