@@ -135,9 +135,6 @@
                                                     <DataTemplate>
                                                         <TextBlock VerticalAlignment="Center" Padding="10">
                                                                      <Run Text="{Binding name}" />
-                                                                     <Run Text="(+" />
-                                                                     <Run Text="{Binding price}" />
-                                                                     <Run Text="€) " />
                                                         </TextBlock>
                                                     </DataTemplate>
                                                 </ItemsControl.ItemTemplate>
@@ -219,9 +216,6 @@
                                                             <DataTemplate>
                                                                 <TextBlock>
                                          <Run Text="{Binding name}" />
-                                         <Run Text="(+" />
-                                         <Run Text="{Binding price}" />
-                                         <Run Text="€) " />
                                                                 </TextBlock>
                                                             </DataTemplate>
                                                         </ItemsControl.ItemTemplate>
