@@ -43,11 +43,11 @@
                 <Image x:Name="imageRoom" Source="../Images/habitacion.png" Grid.Row="1" Grid.Column="0" Grid.RowSpan="6" Margin="20" Stretch="Fill"/>
                 <Label Style="{StaticResource styleLabels}" Grid.Row="7" Content="{Binding SelectedItem.Content, ElementName=comboboxTipoHab, Mode=OneWay}"/>
                 <Label Style="{StaticResource styleLabels}" Content="Fecha entrada"  Grid.Column="1" Grid.Row="1" FontSize="25" />
-                <DatePicker Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <DatePicker x:Name="checkIn" SelectedDate="{Binding FechaEntrada, Mode=TwoWay}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" />
                 <Label Style="{StaticResource styleLabels}" Content="Fecha salida"  Grid.Column="2" Grid.Row="1" FontSize="25" />
-                <DatePicker Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <DatePicker x:Name="checkOut" SelectedDate="{Binding FechaSalida, Mode=TwoWay}" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" />
                 <Label Style="{StaticResource styleLabels}" Content="Huéspedes"  Grid.Column="3" Grid.Row="1" FontSize="25" />
-                <ComboBox x:Name="tipoHabitacionComboBox" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center">
+                <ComboBox  SelectedItem="{Binding NumeroHuespedes, Mode=TwoWay}" Style="{StaticResource ComboBoxStyle}" x:Name="huespedes" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center">
                     <ComboBoxItem>1</ComboBoxItem>
                     <ComboBoxItem>2</ComboBoxItem>
                     <ComboBoxItem>3</ComboBoxItem>
@@ -55,22 +55,27 @@
                 </ComboBox>
                 <Label Style="{StaticResource styleLabels}" Content="Tipo Habitación"  Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" />
                 <Label Style="{StaticResource styleLabels}" FontWeight="Black" Content="205,95€"  FontSize="38" Grid.Column="5" Grid.Row="7"/>
-                <ComboBox x:Name="comboboxTipoHab" IsDropDownOpen="True" Style="{StaticResource ComboBoxStyle}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"  SelectedIndex="0" SelectionChanged="comboboxTipoHab_SelectionChanged">
+                <ComboBox SelectedItem="{Binding TipoHabitacion, Mode=TwoWay}" x:Name="comboboxTipoHab" Style="{StaticResource ComboBoxStyle}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" SelectionChanged="comboboxTipoHab_SelectionChanged">
                     <ComboBoxItem>Habitación Estandar</ComboBoxItem>
                     <ComboBoxItem>Habitación Individual</ComboBoxItem>
                     <ComboBoxItem>Habitación Familiar</ComboBoxItem>
                     <ComboBoxItem>Habitación Deluxe</ComboBoxItem>
                     <ComboBoxItem>Habitación Suite</ComboBoxItem>
                 </ComboBox>
+                <StackPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal">
+                    <ToggleButton Style="{StaticResource ToggleButtonStyle}" Content="Wifi" IsChecked="{Binding WifiSelected, Mode=TwoWay}" x:Name="extrasWifi"/>
+                    <ToggleButton Style="{StaticResource ToggleButtonStyle}" Content="All Inclusive" IsChecked="{Binding AllInclusiveSelected, Mode=TwoWay}" x:Name="extrasAll"/>
+                    <ToggleButton Style="{StaticResource ToggleButtonStyle}" Content="Gym" IsChecked="{Binding GymSelected, Mode=TwoWay}" x:Name="estrasGym"/>
+                    <ToggleButton Style="{StaticResource ToggleButtonStyle}" Content="Spa" IsChecked="{Binding SpaSelected, Mode=TwoWay}" x:Name="strasSpa"/>
+                    <ToggleButton Style="{StaticResource ToggleButtonStyle}" Content="Parking" IsChecked="{Binding ParkingSelected, Mode=TwoWay}" x:Name="extrasParking"/>
+                </StackPanel>
                 <Label Style="{StaticResource styleLabels}"  Content="Usuario:" HorizontalAlignment="Center" Margin="20,10,0,0" Grid.Column="0" Grid.Row="8" />
                 <Label Style="{StaticResource styleLabels}" Content="{Binding CurrentUser.name}" HorizontalAlignment="Left" Margin="20,10,0,0" Grid.Column="1" Grid.Row="8" />
-                <Label Style="{StaticResource styleLabels}" Content="{Binding CurrentUser.email}" HorizontalAlignment="Left" Margin="20,10,0,0" Grid.Column="2" Grid.Row="8" />
+                <Label Style="{StaticResource styleLabels}" Content="{Binding CurrentUser.email}" HorizontalAlignment="Left" Margin="20,10,0,0" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="2" />
                 <Label Style="{StaticResource styleLabels}" Content="TOTAL:" Margin="20,10,0,0" Grid.Column="4" Grid.Row="6" />
-                <Button Background="Transparent" BorderBrush="Transparent" Grid.Column="4" Grid.Row="8">
-                    <Border Background="{StaticResource primaryColorBrush}" Height="44" Width="164" CornerRadius="15">
-                        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Crear Reserva</Label>
-                    </Border>
-                </Button>
+                <Border Background="{StaticResource primaryColorBrush}" Height="44" Width="164" CornerRadius="15"  Grid.Column="4" Grid.Row="8">
+                    <Button x:Name="BtnReserva" Style="{DynamicResource PrimaryButtonStyle}" FontSize="20" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Crear Reserva" Click="BtnReserva_Click" />
+                </Border>
             </Grid>
         </Border>
     </Grid>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HotelPereMaria.viewModels;
+using HotelPereMaria.VistaUser;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,18 @@ namespace HotelPereMaria
     /// </summary>
     public partial class VentanaBuscador : Window
     {
+        private RoomVM _roomVM;
         public VentanaBuscador()
         {
             InitializeComponent();
+            _roomVM = new RoomVM();
+            DataContext = _roomVM;
+            this.LoadRooms();
+        }
+
+        public async Task LoadRooms()
+        {
+            await _roomVM.LoadRooms();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -52,6 +63,12 @@ namespace HotelPereMaria
         {
             //VentanaReserva vtnReserva = new VentanaReserva();
             //vtnReserva.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            VistaUserView vu = new VistaUserView();
+            vu.Show();
         }
     }
 }

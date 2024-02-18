@@ -26,119 +26,196 @@
         </Grid.ColumnDefinitions>
         <ContentControl  Height="50" Margin="20,10,20,10" Content="{StaticResource Navigator}" VerticalAlignment="Top" />
         <Border Margin="100" CornerRadius="20" Background="#FFF7F5F5">
-                <Grid Margin="0,10,0,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="3*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition Height="8*"/>
-                        </Grid.RowDefinitions>
-                        <Viewbox>
-                            <Label Content="Ficha" FontSize="40" FontWeight="Bold" Foreground="{DynamicResource primaryColorBrush}" Margin="20,0,0,0" HorizontalAlignment="Center"/>
-                        </Viewbox>
-                        <Viewbox Grid.Row="1">
-                            <Border DockPanel.Dock="Left" BorderBrush="Transparent" BorderThickness="1" CornerRadius="10" Background="#FFF7F7F7" HorizontalAlignment="Center" MaxHeight="800" VerticalAlignment="Top" Padding="10,0,10,0" Margin="0,0,0,30">
-                                <StackPanel Orientation="Vertical" VerticalAlignment="Top">
-                                    <Image Source="./logoAzul.png" Width="250" Margin="0,20,0,5" HorizontalAlignment="Center" Height="250">
-                                        <Image.OpacityMask>
-                                            <ImageBrush ImageSource="./logoAzul.png"/>
-                                        </Image.OpacityMask>
-                                        <Image.Clip>
-                                            <RectangleGeometry RadiusX="150" RadiusY="150" Rect="0,0,118,118">
-                                                <RectangleGeometry.Transform>
-                                                    <TransformGroup>
-                                                        <ScaleTransform ScaleX="2" ScaleY="2"/>
-                                                        <SkewTransform/>
-                                                        <RotateTransform/>
-                                                        <TranslateTransform/>
-                                                    </TransformGroup>
-                                                </RectangleGeometry.Transform>
-                                            </RectangleGeometry>
-                                        </Image.Clip>
-                                    </Image>
-                                    <Label Content="Nombre" HorizontalAlignment="Center" FontSize="16"/>
-                                    <TextBlock Foreground="{DynamicResource primaryColorBrush}" FontWeight="Bold"  Text="{Binding CurrentUser.name, Mode=OneWay}" HorizontalAlignment="Center" FontSize="25"/>
-                                    <Label Content="Rol" HorizontalAlignment="Center" FontSize="16"/>
-                                    <TextBlock Foreground="{DynamicResource primaryColorBrush}" FontWeight="Bold" Text="{Binding CurrentUser.role, Mode=OneWay}" HorizontalAlignment="Center" FontSize="25"/>
-                                    <Label Content="Email" HorizontalAlignment="Center" FontSize="16"/>
-                                    <TextBlock Foreground="{DynamicResource primaryColorBrush}" FontWeight="Bold" Text="{Binding CurrentUser.email, Mode=OneWay}" HorizontalAlignment="Center" FontSize="25"/>
-                                    <Label Content="Telefono" HorizontalAlignment="Center" FontSize="16"/>
-                                    <TextBlock Foreground="{DynamicResource primaryColorBrush}" FontWeight="Bold" Text="{Binding CurrentUser.phone, Mode=OneWay}" HorizontalAlignment="Center" Margin="0,0,0,25" FontSize="25"/>
-                                </StackPanel>
-                            </Border>
-                        </Viewbox>
+            <Grid Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="8*"/>
+                    </Grid.RowDefinitions>
+                    <Viewbox>
+                        <Label Content="Ficha" FontSize="40" FontWeight="Bold" Foreground="{DynamicResource primaryColorBrush}" Margin="20,0,0,0" HorizontalAlignment="Center"/>
+                    </Viewbox>
+                    <Viewbox Grid.Row="1">
+                        <Border DockPanel.Dock="Left" BorderBrush="Transparent" BorderThickness="1" CornerRadius="10" Background="#FFF7F7F7" HorizontalAlignment="Center" MaxHeight="800" VerticalAlignment="Top" Padding="10,0,10,0" Margin="0,0,0,30">
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+                                <Image Source="https://i.pravatar.cc/300?img=11" Width="250" Margin="0,20,0,5" HorizontalAlignment="Center" Height="250">
+                                    <Image.OpacityMask>
+                                        <ImageBrush ImageSource="https://i.pravatar.cc/300?img=11"/>
+                                    </Image.OpacityMask>
+                                    <Image.Clip>
+                                        <RectangleGeometry RadiusX="150" RadiusY="150" Rect="0,0,118,118">
+                                            <RectangleGeometry.Transform>
+                                                <TransformGroup>
+                                                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                                                    <SkewTransform/>
+                                                    <RotateTransform/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </RectangleGeometry.Transform>
+                                        </RectangleGeometry>
+                                    </Image.Clip>
+                                </Image>
+                                <Label Content="Nombre" HorizontalAlignment="Center" FontSize="16"/>
+                                <TextBlock Foreground="{DynamicResource primaryColorBrush}" FontWeight="Bold"  Text="{Binding CurrentUser.name, Mode=OneWay}" HorizontalAlignment="Center" FontSize="25"/>
+                                <Label Content="Rol" HorizontalAlignment="Center" FontSize="16"/>
+                                <TextBlock Foreground="{DynamicResource primaryColorBrush}" FontWeight="Bold" Text="{Binding CurrentUser.role, Mode=OneWay}" HorizontalAlignment="Center" FontSize="25"/>
+                                <Label Content="Email" HorizontalAlignment="Center" FontSize="16"/>
+                                <TextBlock Foreground="{DynamicResource primaryColorBrush}" FontWeight="Bold" Text="{Binding CurrentUser.email, Mode=OneWay}" HorizontalAlignment="Center" FontSize="25"/>
+                                <Label Content="Telefono" HorizontalAlignment="Center" FontSize="16"/>
+                                <TextBlock Foreground="{DynamicResource primaryColorBrush}" FontWeight="Bold" Text="{Binding CurrentUser.phone, Mode=OneWay}" HorizontalAlignment="Center" Margin="0,0,0,25" FontSize="25"/>
+                            </StackPanel>
+                        </Border>
+                    </Viewbox>
 
-                    </Grid>
-                    <Grid Grid.Column="1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition Height="7*"/>
-                            <RowDefinition Height="2*"/>
-                        </Grid.RowDefinitions>
-                        <Viewbox>
-                            <ToggleButton Style="{StaticResource PrimaryButtonStyleCambio}" x:Name="toggleButton" Content="Cambiar vista" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,10,10" Checked="toggleButton_Checked" Unchecked="toggleButton_Unchecked" Width="500"/>
-                        </Viewbox>
-                        <Border Grid.Row="1" CornerRadius="10">
-                            <Border.Effect>
-                                <DropShadowEffect ShadowDepth="2" Color="#7F000000"/>
-                            </Border.Effect>
-                            <Viewbox>
-                                <DataGrid Visibility="Collapsed" Background="Transparent"  CellStyle="{StaticResource BlueCellStyle}" x:Name="dataGrid"  AutoGenerateColumns="False" ItemsSource="{Binding Reservations}" Margin="10" BorderBrush="Transparent" CanUserAddRows="False" IsReadOnly="True">
-                                    <DataGrid.Columns>
-                                        <DataGridTemplateColumn Header="ID">
-                                            <DataGridTemplateColumn.CellTemplate>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="7*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+                    <Viewbox>
+                        <ToggleButton Style="{StaticResource PrimaryButtonStyleCambio}" x:Name="toggleButton" Content="Cambiar vista" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,10,10" Checked="toggleButton_Checked" Unchecked="toggleButton_Unchecked" Width="500"/>
+                    </Viewbox>
+                    <Border Grid.Row="1" CornerRadius="10">
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="2" Color="#7F000000"/>
+                        </Border.Effect>
+                        <DataGrid Visibility="Collapsed" Background="Transparent"  CellStyle="{StaticResource BlueCellStyle}" x:Name="dataGrid"  AutoGenerateColumns="False" ItemsSource="{Binding Reservations}" Margin="10" BorderBrush="Transparent" CanUserAddRows="False" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Header="ID" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock VerticalAlignment="Center" Padding="10">
+                                                         <Run Text="#" />
+                                                         <Run Text="{Binding ReservationId}" />
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="Habitación" Binding="{Binding room_number}" Width="*">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                                            <Setter Property="Padding" Value="10"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Header="CheckIn" Binding="{Binding check_in_date, StringFormat=\{0:dd/MM/yy HH:mm\}}" Width="*">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                                            <Setter Property="Padding" Value="10"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Header="CheckOut" Binding="{Binding check_out_date, StringFormat=\{0:dd/MM/yy HH:mm\}}" Width="*">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                                            <Setter Property="Padding" Value="10"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTemplateColumn Header="Extras" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ItemsControl ItemsSource="{Binding extras}" VerticalAlignment="Center">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock VerticalAlignment="Center" Padding="10">
+                                                                     <Run Text="{Binding name}" />
+                                                        </TextBlock>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <StackPanel Orientation="Vertical"/>
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                            </ItemsControl>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice}" Width="*">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                                            <Setter Property="Padding" Value="10"/>
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTemplateColumn Header="Acciones" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Button Style="{StaticResource PrimaryButtonStyle}" Content="Eliminar" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" Margin="5"/>
+                                                <Button Style="{StaticResource PrimaryButtonStyle}" Content="Eliminar" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" Margin="5"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Border>
+
+                    <Border Grid.Row="1" CornerRadius="10">
+                        <Viewbox VerticalAlignment="Top">
+                            <ListView ItemContainerStyle="{StaticResource BlueListViewStyle}" x:Name="listView" MaxWidth="1060" ItemsSource="{Binding Reservations}" Margin="10,10,10,10" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Stretch">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="ID">
+                                            <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
-                                                    <TextBlock VerticalAlignment="Center" Padding="10">
-                         <Run Text="#" />
-                         <Run Text="{Binding ReservationId}" />
+                                                    <TextBlock>
+                                 <Run Text="#" />
+                                 <Run Text="{Binding ReservationId}" />
                                                     </TextBlock>
                                                 </DataTemplate>
-                                            </DataGridTemplateColumn.CellTemplate>
-                                        </DataGridTemplateColumn>
-                                        <DataGridTextColumn Header="Habitación" Binding="{Binding room_number}">
-                                            <DataGridTextColumn.ElementStyle>
-                                                <Style TargetType="{x:Type TextBlock}">
-                                                    <Setter Property="VerticalAlignment" Value="Center"/>
-                                                    <Setter Property="HorizontalAlignment" Value="Center"/>
-                                                    <Setter Property="Padding" Value="10"/>
-                                                </Style>
-                                            </DataGridTextColumn.ElementStyle>
-                                        </DataGridTextColumn>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
 
-                                        <DataGridTextColumn Header="CheckIn" Binding="{Binding check_in_date, StringFormat=\{0:dd/MM/yy HH:mm\}}">
-                                            <DataGridTextColumn.ElementStyle>
-                                                <Style TargetType="{x:Type TextBlock}">
-                                                    <Setter Property="VerticalAlignment" Value="Center"/>
-                                                    <Setter Property="HorizontalAlignment" Value="Center"/>
-                                                    <Setter Property="Padding" Value="10"/>
-                                                </Style>
-                                            </DataGridTextColumn.ElementStyle>
-                                        </DataGridTextColumn>
+                                        <GridViewColumn Header="Habitación" DisplayMemberBinding="{Binding room_number}" />
 
-                                        <DataGridTextColumn Header="CheckOut" Binding="{Binding check_out_date, StringFormat=\{0:dd/MM/yy HH:mm\}}">
-                                            <DataGridTextColumn.ElementStyle>
-                                                <Style TargetType="{x:Type TextBlock}">
-                                                    <Setter Property="VerticalAlignment" Value="Center"/>
-                                                    <Setter Property="HorizontalAlignment" Value="Center"/>
-                                                    <Setter Property="Padding" Value="10"/>
-                                                </Style>
-                                            </DataGridTextColumn.ElementStyle>
-                                        </DataGridTextColumn>
-
-                                        <DataGridTemplateColumn Header="Extras">
-                                            <DataGridTemplateColumn.CellTemplate>
+                                        <GridViewColumn Header="CheckIn">
+                                            <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
-                                                    <ItemsControl ItemsSource="{Binding extras}" VerticalAlignment="Center">
+                                                    <TextBlock>
+                             <Run Text="{Binding check_in_date, StringFormat=\{0:dd/MM/yy HH:mm\}}" />
+                                                    </TextBlock>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+
+                                        <GridViewColumn Header="CheckOut">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock>
+                             <Run Text="{Binding check_out_date, StringFormat=\{0:dd/MM/yy HH:mm\}}" />
+                                                    </TextBlock>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+
+                                        <GridViewColumn Header="Extras">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <ItemsControl ItemsSource="{Binding extras}">
                                                         <ItemsControl.ItemTemplate>
                                                             <DataTemplate>
-                                                                <TextBlock VerticalAlignment="Center" Padding="10">
-                                     <Run Text="{Binding name}" />
-                                     <Run Text="(+" />
-                                     <Run Text="{Binding price}" />
-                                     <Run Text="€) " />
+                                                                <TextBlock>
+                                         <Run Text="{Binding name}" />
                                                                 </TextBlock>
                                                             </DataTemplate>
                                                         </ItemsControl.ItemTemplate>
@@ -149,119 +226,37 @@
                                                         </ItemsControl.ItemsPanel>
                                                     </ItemsControl>
                                                 </DataTemplate>
-                                            </DataGridTemplateColumn.CellTemplate>
-                                        </DataGridTemplateColumn>
-                                        <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice}">
-                                            <DataGridTextColumn.ElementStyle>
-                                                <Style TargetType="{x:Type TextBlock}">
-                                                    <Setter Property="VerticalAlignment" Value="Center"/>
-                                                    <Setter Property="HorizontalAlignment" Value="Center"/>
-                                                    <Setter Property="Padding" Value="10"/>
-                                                </Style>
-                                            </DataGridTextColumn.ElementStyle>
-                                        </DataGridTextColumn>
-                                        <DataGridTemplateColumn Header="Accion">
-                                            <DataGridTemplateColumn.CellTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+
+                                        <GridViewColumn Header="Total">
+                                            <GridViewColumn.DisplayMemberBinding>
+                                                <Binding Path="TotalPrice" StringFormat="{}{0:C}" />
+                                            </GridViewColumn.DisplayMemberBinding>
+                                        </GridViewColumn>
+
+                                        <GridViewColumn Header="Acciones">
+                                            <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <StackPanel Orientation="Horizontal">
                                                         <Button Style="{StaticResource PrimaryButtonStyle}" Content="Eliminar" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" Margin="5"/>
-
+                                                        <Button Style="{StaticResource PrimaryButtonStyle}" Content="Editar" Margin="5"/>
                                                     </StackPanel>
                                                 </DataTemplate>
-                                            </DataGridTemplateColumn.CellTemplate>
-                                        </DataGridTemplateColumn>
-                                    </DataGrid.Columns>
-                                </DataGrid>
-                            </Viewbox>
-                        </Border>
-
-                        <Border Grid.Row="1" CornerRadius="10">
-                            <Viewbox VerticalAlignment="Top">
-                                <ListView ItemContainerStyle="{StaticResource BlueListViewStyle}" x:Name="listView" MaxWidth="1060" ItemsSource="{Binding Reservations}" Margin="10,10,10,10" BorderBrush="Transparent" Background="Transparent" HorizontalContentAlignment="Stretch">
-                                    <ListView.View>
-                                        <GridView>
-                                            <GridViewColumn Header="ID">
-                                                <GridViewColumn.CellTemplate>
-                                                    <DataTemplate>
-                                                        <TextBlock>
-                                 <Run Text="#" />
-                                 <Run Text="{Binding ReservationId}" />
-                                                        </TextBlock>
-                                                    </DataTemplate>
-                                                </GridViewColumn.CellTemplate>
-                                            </GridViewColumn>
-
-                                            <GridViewColumn Header="Habitación" DisplayMemberBinding="{Binding room_number}" />
-
-                                            <GridViewColumn Header="CheckIn">
-                                                <GridViewColumn.CellTemplate>
-                                                    <DataTemplate>
-                                                        <TextBlock>
-                             <Run Text="{Binding check_in_date, StringFormat=\{0:dd/MM/yy HH:mm\}}" />
-                                                        </TextBlock>
-                                                    </DataTemplate>
-                                                </GridViewColumn.CellTemplate>
-                                            </GridViewColumn>
-
-                                            <GridViewColumn Header="CheckOut">
-                                                <GridViewColumn.CellTemplate>
-                                                    <DataTemplate>
-                                                        <TextBlock>
-                             <Run Text="{Binding check_out_date, StringFormat=\{0:dd/MM/yy HH:mm\}}" />
-                                                        </TextBlock>
-                                                    </DataTemplate>
-                                                </GridViewColumn.CellTemplate>
-                                            </GridViewColumn>
-
-                                            <GridViewColumn Header="Extras">
-                                                <GridViewColumn.CellTemplate>
-                                                    <DataTemplate>
-                                                        <ItemsControl ItemsSource="{Binding extras}">
-                                                            <ItemsControl.ItemTemplate>
-                                                                <DataTemplate>
-                                                                    <TextBlock>
-                                         <Run Text="{Binding name}" />
-                                         <Run Text="(+" />
-                                         <Run Text="{Binding price}" />
-                                         <Run Text="€) " />
-                                                                    </TextBlock>
-                                                                </DataTemplate>
-                                                            </ItemsControl.ItemTemplate>
-                                                            <ItemsControl.ItemsPanel>
-                                                                <ItemsPanelTemplate>
-                                                                    <StackPanel Orientation="Vertical"/>
-                                                                </ItemsPanelTemplate>
-                                                            </ItemsControl.ItemsPanel>
-                                                        </ItemsControl>
-                                                    </DataTemplate>
-                                                </GridViewColumn.CellTemplate>
-                                            </GridViewColumn>
-
-                                            <GridViewColumn Header="Total">
-                                                <GridViewColumn.DisplayMemberBinding>
-                                                    <Binding Path="TotalPrice" StringFormat="{}{0:C}" />
-                                                </GridViewColumn.DisplayMemberBinding>
-                                            </GridViewColumn>
-
-                                            <GridViewColumn Header="Acciones">
-                                                <GridViewColumn.CellTemplate>
-                                                    <DataTemplate>
-                                                        <Button Style="{StaticResource PrimaryButtonStyle}" Content="Eliminar" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" Margin="5"/>
-                                                    </DataTemplate>
-                                                </GridViewColumn.CellTemplate>
-                                            </GridViewColumn>
-                                        </GridView>
-                                    </ListView.View>
-                                </ListView>
-                            </Viewbox>
-                        </Border>
-                        <Viewbox Grid.Row="2"  HorizontalAlignment="Right" Margin="0,0,0,20">
-                            <Button x:Name="BtnReserva" Style="{StaticResource CircularButtonStyle}" Click="BtnReserva_Click" Margin="0,0,10,0"/>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
                         </Viewbox>
-                    </Grid>
+                    </Border>
+                    <Viewbox Grid.Row="2"  HorizontalAlignment="Right" Margin="0,0,0,20">
+                        <Button x:Name="BtnReserva" Style="{StaticResource CircularButtonStyle}" Click="BtnReserva_Click" Margin="0,0,10,0"/>
+                    </Viewbox>
                 </Grid>
+            </Grid>
 
-                   
+
         </Border>
     </Grid>
 </Window>
