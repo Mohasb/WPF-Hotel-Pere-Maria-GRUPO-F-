@@ -14,28 +14,32 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
-        <Image Grid.Column="0" Source="/views/logoAzul.png">
+            <Image Grid.Column="0" Source="/views/logoAzul.png">
             <Image.OpacityMask>
                 <ImageBrush ImageSource="/views/logoAzul.png"/>
             </Image.OpacityMask>
         </Image>
-
-        <Label Grid.Column="1" Content="Hotel Pere María" FontSize="24" VerticalAlignment="Center" FontWeight="Bold" Foreground="{StaticResource primaryColorBrush}"/>
-
-        <Border Grid.Column="2" BorderBrush="Transparent" BorderThickness="1" Background="Transparent"  VerticalAlignment="Center">
-            <TextBlock Text="Buscador" FontSize="18" Margin="30,0,0,0" FontWeight="Bold" Foreground="{StaticResource primaryColorBrush}"/>
+        <Label Grid.Column="1" Content="Hotel Pere María" FontSize="35" VerticalAlignment="Center" FontWeight="Bold" Foreground="{StaticResource primaryColorBrush}"/>
+            <Border Grid.Column="2" BorderBrush="Transparent" BorderThickness="1"  Background="Transparent"  VerticalAlignment="Bottom">
+        <Viewbox>
+                <TextBlock Text="Buscador" FontSize="30" Margin="30,0,0,0" FontWeight="Bold" Foreground="{StaticResource primaryColorBrush}"/>
+        </Viewbox>
+            </Border>
+            <Border Grid.Column="3" BorderBrush="Transparent" BorderThickness="1" Background="Transparent" VerticalAlignment="Bottom">
+        <Viewbox>
+            <TextBlock Text="Usuarios" FontSize="30" Margin="20,0,0,0" FontWeight="Bold" Foreground="{StaticResource primaryColorBrush}"/>
+        </Viewbox>
         </Border>
-        <Border Grid.Column="3" BorderBrush="Transparent" BorderThickness="1" Background="Transparent" VerticalAlignment="Center">
-            <TextBlock Text="Usuarios" FontSize="18" Margin="20,0,0,0" FontWeight="Bold" Foreground="{StaticResource primaryColorBrush}"/>
+            <Border Grid.Column="4" BorderBrush="Transparent" BorderThickness="1" Background="Transparent" VerticalAlignment="Bottom">
+        <Viewbox>
+            <TextBlock Text="Reservas" FontSize="30" Margin="20,0,0,0" FontWeight="Bold" Foreground="{StaticResource primaryColorBrush}"/>
+        </Viewbox>
         </Border>
-        <Border Grid.Column="4" BorderBrush="Transparent" BorderThickness="1" Background="Transparent" VerticalAlignment="Center">
-            <TextBlock Text="Reservas" FontSize="18" Margin="20,0,0,0" FontWeight="Bold" Foreground="{StaticResource primaryColorBrush}"/>
+            <Border Grid.Column="5" BorderBrush="Transparent" BorderThickness="1" Background="Transparent" VerticalAlignment="Bottom">
+        <Viewbox>
+            <TextBlock Text="Habitaciones" FontSize="30" Margin="20,0,0,0" FontWeight="Bold" Foreground="{StaticResource primaryColorBrush}"/>
+        </Viewbox>
         </Border>
-        <Border Grid.Column="5" BorderBrush="Transparent" BorderThickness="1" Background="Transparent" VerticalAlignment="Center">
-            <TextBlock Text="Habitaciones" FontSize="18" Margin="20,0,0,0" FontWeight="Bold" Foreground="{StaticResource primaryColorBrush}"/>
-        </Border>
-
     </Grid>
     <!--Buttón Circular-->
     <Style x:Key="CircularButtonStyle" TargetType="Button">
@@ -194,13 +198,26 @@
             </Setter.Value>
         </Setter>
     </Style>
-     <!--Labels-->
+     
+    <!--Labels-->
     <Style x:Key="styleLabels" TargetType="Label">
         <Setter Property="Foreground" Value="{StaticResource primaryColorBrush}" />
         <Setter Property="FontSize" Value="30" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="HorizontalAlignment" Value="Center" />
            
+    </Style>
+
+    <Style x:Key="ToggleButtonStyle" TargetType="ToggleButton">
+        <Setter Property="Foreground" Value="{StaticResource WhiteForegroundBrush}" />
+        <Setter Property="Background" Value="{StaticResource primaryColorBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource primaryColorBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="FontFamily" Value="Segoe UI" />
+        <Setter Property="FontSize" Value="20" />
+
     </Style>
 
 
