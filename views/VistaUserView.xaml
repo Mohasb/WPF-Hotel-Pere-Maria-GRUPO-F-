@@ -85,10 +85,9 @@
                             <Border.Effect>
                                 <DropShadowEffect ShadowDepth="2" Color="#7F000000"/>
                             </Border.Effect>
-                            <Viewbox>
-                                <DataGrid Visibility="Collapsed" Background="Transparent"  CellStyle="{StaticResource BlueCellStyle}" x:Name="dataGrid"  AutoGenerateColumns="False" ItemsSource="{Binding Reservations}" Margin="10" BorderBrush="Transparent" CanUserAddRows="False" IsReadOnly="True">
+                            <DataGrid Visibility="Collapsed" Background="Transparent"  CellStyle="{StaticResource BlueCellStyle}" x:Name="dataGrid"  AutoGenerateColumns="False" ItemsSource="{Binding Reservations}" Margin="10" BorderBrush="Transparent" CanUserAddRows="False" IsReadOnly="True">
                                     <DataGrid.Columns>
-                                        <DataGridTemplateColumn Header="ID">
+                                <DataGridTemplateColumn Header="ID" Width="*">
                                             <DataGridTemplateColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <TextBlock VerticalAlignment="Center" Padding="10">
@@ -98,7 +97,7 @@
                                                 </DataTemplate>
                                             </DataGridTemplateColumn.CellTemplate>
                                         </DataGridTemplateColumn>
-                                        <DataGridTextColumn Header="Habitación" Binding="{Binding room_number}">
+                                <DataGridTextColumn Header="Habitación" Binding="{Binding room_number}" Width="*">
                                             <DataGridTextColumn.ElementStyle>
                                                 <Style TargetType="{x:Type TextBlock}">
                                                     <Setter Property="VerticalAlignment" Value="Center"/>
@@ -108,7 +107,7 @@
                                             </DataGridTextColumn.ElementStyle>
                                         </DataGridTextColumn>
 
-                                        <DataGridTextColumn Header="CheckIn" Binding="{Binding check_in_date, StringFormat=\{0:dd/MM/yy HH:mm\}}">
+                                <DataGridTextColumn Header="CheckIn" Binding="{Binding check_in_date, StringFormat=\{0:dd/MM/yy HH:mm\}}" Width="*">
                                             <DataGridTextColumn.ElementStyle>
                                                 <Style TargetType="{x:Type TextBlock}">
                                                     <Setter Property="VerticalAlignment" Value="Center"/>
@@ -118,7 +117,7 @@
                                             </DataGridTextColumn.ElementStyle>
                                         </DataGridTextColumn>
 
-                                        <DataGridTextColumn Header="CheckOut" Binding="{Binding check_out_date, StringFormat=\{0:dd/MM/yy HH:mm\}}">
+                                <DataGridTextColumn Header="CheckOut" Binding="{Binding check_out_date, StringFormat=\{0:dd/MM/yy HH:mm\}}" Width="*">
                                             <DataGridTextColumn.ElementStyle>
                                                 <Style TargetType="{x:Type TextBlock}">
                                                     <Setter Property="VerticalAlignment" Value="Center"/>
@@ -128,7 +127,7 @@
                                             </DataGridTextColumn.ElementStyle>
                                         </DataGridTextColumn>
 
-                                        <DataGridTemplateColumn Header="Extras">
+                                <DataGridTemplateColumn Header="Extras" Width="*">
                                             <DataGridTemplateColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <ItemsControl ItemsSource="{Binding extras}" VerticalAlignment="Center">
@@ -151,7 +150,7 @@
                                                 </DataTemplate>
                                             </DataGridTemplateColumn.CellTemplate>
                                         </DataGridTemplateColumn>
-                                        <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice}">
+                                <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice}" Width="*">
                                             <DataGridTextColumn.ElementStyle>
                                                 <Style TargetType="{x:Type TextBlock}">
                                                     <Setter Property="VerticalAlignment" Value="Center"/>
@@ -160,19 +159,17 @@
                                                 </Style>
                                             </DataGridTextColumn.ElementStyle>
                                         </DataGridTextColumn>
-                                        <DataGridTemplateColumn Header="Accion">
+                                <DataGridTemplateColumn Header="Accion" Width="*">
                                             <DataGridTemplateColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <StackPanel Orientation="Horizontal">
-                                                        <Button Style="{StaticResource PrimaryButtonStyle}" Content="Eliminar" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" Margin="5"/>
-
-                                                    </StackPanel>
+                                                <Button Style="{StaticResource PrimaryButtonStyle}" Content="Eliminar" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" Margin="5"/>
+                                            </StackPanel>
                                                 </DataTemplate>
                                             </DataGridTemplateColumn.CellTemplate>
                                         </DataGridTemplateColumn>
                                     </DataGrid.Columns>
                                 </DataGrid>
-                            </Viewbox>
                         </Border>
 
                         <Border Grid.Row="1" CornerRadius="10">
