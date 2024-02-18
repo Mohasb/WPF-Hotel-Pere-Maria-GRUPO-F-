@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelPereMaria"
         mc:Ignorable="d"
-        Title="VentanaBuscador" Height="818" Width="1340">
+        Title="VentanaBuscador" Height="818" Width="1340" WindowState="Maximized">
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel>

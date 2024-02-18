@@ -44,7 +44,7 @@ namespace HotelPereMaria
 
         public async Task Login()
         {
-            await viewModel.Login();
+            await viewModel.Login(txtEmail.Text, txtPassword.Password);
         }
     }
 }

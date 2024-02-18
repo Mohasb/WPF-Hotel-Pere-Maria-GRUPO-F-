@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -41,33 +42,8 @@ namespace HotelPereMaria.viewModels
             }
         }
 
-        public async Task Login()
+        public async Task Login(string email, string password)
         {
-            //    try
-            //    {
-            //        var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://localhost/api/login");
-            //        httpWebRequest.ContentType = "application/json";
-            //        httpWebRequest.Method = "POST";
-
-            //        using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-            //        {
-            //            string json = "{\"email\":\"" + Email + "\"," +
-            //                          "\"password\":\"" + Password + "\"}";
-
-            //            streamWriter.Write(json);
-            //        }
-
-            //        var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-            //        using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-            //        {
-            //            var result = streamReader.ReadToEnd();
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show($"Error: {ex.Message}");
-            //    }
-
             string apiUrl = "https://localhost/api/login";
 
             try
@@ -78,22 +54,33 @@ namespace HotelPereMaria.viewModels
                 using (HttpClient client = new HttpClient(handler))
                 {
 
-                    string json = "{\"email\":\"" + "correo1@example.com"/*Email*/ + "\"," +
-                                  "\"password\":\"" + "password"/*Password*/ + "\"}";
+                    string json = "{\"email\":\"" + email/*"chitan@gmail.com"*/ + "\"," +
+                                  "\"password\":\"" + password/*"Chitan2024!"*/ + "\"}";
 
                     StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
                     HttpResponseMessage response = await client.PostAsync(apiUrl, content);
-                   
+
                     string responseBody = await response.Content.ReadAsStringAsync();
                     dynamic result = JObject.Parse(responseBody);
                     string jsonArray = result.data.token;
 
-                    MessageBox.Show(jsonArray);
+                    string token = jsonArray;
+
+                    Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                    config.AppSettings.Settings["Token"].Value = token;
+                    config.Save(ConfigurationSaveMode.Modified);
+                    ConfigurationManager.RefreshSection("appSettings");
 
                     if (response.IsSuccessStatusCode)
                     {
                         MessageBox.Show("Reserva realizada con éxito.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        VentanaBuscador ventanaBuscador = new VentanaBuscador();
+                        ventanaBuscador.Show();
+
+                        // Cerrar la ventana de inicio de sesión (MainWindow)
+                        Application.Current.MainWindow.Close();
                         //return true;
                     }
                     else

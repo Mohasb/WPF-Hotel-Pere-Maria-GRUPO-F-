@@ -166,6 +166,7 @@ namespace HotelPereMaria.viewModels
                     Email = CurrentUser.email,
                     UserName = CurrentUser.user_name,
                     Role = CurrentUser.role,
+                    Birth_date = CurrentUser.birth_date,
                     Phone = int.Parse(CurrentUser.phone) 
                 },
                 CheckInDate = fechaEntrada,

@@ -17,6 +17,7 @@ namespace HotelPereMaria.models
         public string Name { get; set; }
         public string Email { get; set; }
         public string UserName { get; set; }
+        public DateTime Birth_date { get; set; }
         public string Role { get; set; }
         public int Phone { get; set; }
     }
