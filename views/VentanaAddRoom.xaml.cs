@@ -62,7 +62,7 @@ namespace HotelPereMaria
 
                     if (response.IsSuccessStatusCode)
                     {
-                        MessageBox.Show("Habitación añadida exitosamente.");
+                        MessageBox.Show("Habitación añadida correctamente.");
                         txtRoomNumber.Text = string.Empty;
                         txtRoomType.Text = string.Empty;
                     }
