@@ -33,6 +33,9 @@ namespace HotelPereMaria.models
             [JsonProperty("role")]
             public string Role { get; set; }
 
+            [JsonProperty("birth_date")]
+            public DateTime Birth_date { get; set; }
+
             [JsonProperty("phone")]
             public int Phone { get; set; }
         }
@@ -61,5 +64,4 @@ namespace HotelPereMaria.models
             public int Ocupation { get; set; }
         }
     }
-
 }

@@ -5,6 +5,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -141,6 +142,17 @@ namespace HotelPereMaria.viewModels
             }
         }
 
+        private string _id;
+        public string Id
+        {
+            get { return _id; }
+            set
+            {
+                _id = value;
+                OnPropertyChanged(nameof(Id));
+            }
+        }
+
         public ReservaVM(UserModel currentUser)
         {
             _currentUser = currentUser;
@@ -168,7 +180,8 @@ namespace HotelPereMaria.viewModels
                     Email = CurrentUser.email,
                     UserName = CurrentUser.user_name,
                     Role = CurrentUser.role,
-                    Phone = int.Parse(CurrentUser.phone)
+                    Birth_date = CurrentUser.birth_date,
+                    Phone = int.Parse(CurrentUser.phone) 
                 },
                 CheckInDate = fechaEntrada,
                 CheckOutDate = fechaSalida,
@@ -182,6 +195,8 @@ namespace HotelPereMaria.viewModels
                         new PostExtra { Name = "Spa", Value = spaSelected },
                         new PostExtra { Name = "Parking", Value = parkingSelected }
                     }
+                .Where(extra => extra.Value == true) 
+                .ToList()
             };
 
 

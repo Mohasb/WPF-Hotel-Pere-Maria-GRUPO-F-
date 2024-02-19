@@ -54,7 +54,7 @@
 
                 <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Center" Margin="20">Seleccionar Imagen principal</Label>
 
-                <Button Content="Seleccionar Imagen" Click="OnSelectImageClick" Margin="20" Grid.Row="6"/>
+                <Button Content="Seleccionar Imagen" Click="OnSelectImageClick"  Margin="20" Grid.Row="6"/>
 
                 <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Margin="20">Extras</Label>
                 <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="6">
