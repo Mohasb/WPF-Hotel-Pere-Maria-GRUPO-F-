@@ -54,8 +54,8 @@ namespace HotelPereMaria.viewModels
                 using (HttpClient client = new HttpClient(handler))
                 {
 
-                    string json = "{\"email\":\"" + email/*"chitan@gmail.com"*/ + "\"," +
-                                  "\"password\":\"" + password/*"Chitan2024!"*/ + "\"}";
+                    string json = "{\"email\":\"" + email + "\"," +
+                                  "\"password\":\"" + password + "\"}";
 
                     StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -74,7 +74,7 @@ namespace HotelPereMaria.viewModels
 
                     if (response.IsSuccessStatusCode)
                     {
-                        MessageBox.Show("Reserva realizada con éxito.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Usuario logueado con éxito.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
 
                         VentanaBuscador ventanaBuscador = new VentanaBuscador();
                         ventanaBuscador.Show();
