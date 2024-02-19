@@ -148,6 +148,7 @@
                                     <DataTemplate>
                                         <StackPanel>
                                             <Button Style="{StaticResource PrimaryButtonStyle}" Content="Eliminar" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" Margin="5"/>
+                                            <Button Style="{StaticResource PrimaryButtonStyle}" Content="Informacion" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" Margin="5" Click="btnInf_Click"/>
                                             <Button Style="{StaticResource PrimaryButtonStyle}" Content="Editar" Command="{Binding DataContext.EditCommad, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" Margin="5"/>
                                         </StackPanel>
                                     </DataTemplate>

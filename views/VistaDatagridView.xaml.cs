@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelPereMaria.VistaUser;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -35,7 +36,7 @@ namespace HotelPereMaria
             {
                 IsSelected = false,
                 ID = 200,
-                Foto = "",
+                Foto = "https://i.pravatar.cc/300?img=11",
                 Nombre = "Juan Pere",
                 Rol = "User",
                 IsVIP = true
@@ -45,8 +46,8 @@ namespace HotelPereMaria
             {
                 IsSelected = false,
                 ID = 201,
-                Foto = "",
-                Nombre = "Chitan",
+                Foto = "https://i.pravatar.cc/300?img=32",
+                Nombre = "Elena",
                 Rol = "Administrador",
                 IsVIP = true
             });
@@ -122,6 +123,12 @@ namespace HotelPereMaria
             dgUsers.Visibility = toggleBtn.IsChecked == true ? Visibility.Visible : Visibility.Collapsed;
             lblIconBtn.Content = "DataGrid";
             lvUsers.Visibility = toggleBtn.IsChecked == true ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        private void btnInf_Click(object sender, RoutedEventArgs e)
+        {
+            VistaUserView vistaUserView = new VistaUserView();
+            vistaUserView.Show();
         }
     }
 }
