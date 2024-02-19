@@ -179,12 +179,13 @@ namespace HotelPereMaria.VistaUser
                             {
                                 CurrentUser = reservations[0].user;
                             }
-                            // Asignar id basado en el índice
+
+
                             for (int i = 0; i < reservations.Count; i++)
                             {
                                 reservations[i].ReservationId = i + 1;
                                 reservations[i].check_in_date = new DateTime(reservations[i].check_in_date.Year, reservations[i].check_in_date.Month, reservations[i].check_in_date.Day, 12, 0, 0);
-                                reservations[i].check_out_date = new DateTime(reservations[i].check_out_date.Year, reservations[i].check_out_date.Month, reservations[i].check_in_date.Day, 14, 0, 0);
+                                reservations[i].check_out_date = new DateTime(reservations[i].check_out_date.Year, reservations[i].check_out_date.Month, reservations[i].check_out_date.Day, 14, 0, 0);
                             }
                         }
                         else

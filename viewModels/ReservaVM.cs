@@ -5,6 +5,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -193,6 +194,8 @@ namespace HotelPereMaria.viewModels
                         new PostExtra { Name = "Spa", Value = spaSelected },
                         new PostExtra { Name = "Parking", Value = parkingSelected }
                     }
+                .Where(extra => extra.Value == true) 
+                .ToList()
             };
 
 
