@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using HotelPereMaria.viewModels;
+using Microsoft.Win32;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,11 @@ namespace HotelPereMaria
     /// </summary>
     public partial class VentanaAddRoom : Window
     {
+        private AddRoomVM _addRoom;
         public VentanaAddRoom()
         {
             InitializeComponent();
+            _addRoom = new AddRoomVM();
         }
 
         private void OnSelectImageClick(object sender, RoutedEventArgs e)
@@ -43,39 +46,16 @@ namespace HotelPereMaria
 
         private async void OnEnviarClick(object sender, RoutedEventArgs e)
         {
-            try
+            var roomDetails = new
             {
-                var roomDetails = new
-                {
-                    room_number = txtRoomNumber.Text,
-                    type = txtRoomType.Text,
-                };
+                room_number = txtRoomNumber.Text,
+                type = txtRoomType.Text,
+                maxOccupancy = txtMaxOccupancy.Text,
+                description = txtDescription.Text,
+                rate = txtRate.Text,
+            };
 
-                string apiUrl = "https://localhost/api/rooms/";
-
-                using (var httpClient = new HttpClient())
-                {
-                    var jsonContent = JsonConvert.SerializeObject(roomDetails);
-                    var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-
-                    var response = await httpClient.PostAsync(apiUrl, content);
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        MessageBox.Show("Habitación añadida correctamente.");
-                        txtRoomNumber.Text = string.Empty;
-                        txtRoomType.Text = string.Empty;
-                    }
-                    else
-                    {
-                        MessageBox.Show($"Error al añadir la habitación. Código de estado: {response.StatusCode}");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: {ex.Message}");
-            }
+            await _addRoom.AddRoom(roomDetails);
         }
     }
 }

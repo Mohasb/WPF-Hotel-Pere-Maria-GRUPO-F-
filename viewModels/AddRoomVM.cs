@@ -22,11 +22,7 @@ namespace HotelPereMaria.viewModels
         private int _maxOccupancy;
         private string _description;
         private string _selectedImage;
-        private bool _gym;
-        private bool _spa;
-        private bool _parking;
-        private bool _all;
-        private double _pricePerNight;
+        private int _rate;
 
         public int RoomNumber
         {
@@ -64,12 +60,11 @@ namespace HotelPereMaria.viewModels
             set { }
         }
 
-        public double PricePerNight
+        public int Rate
         {
-            get { return _pricePerNight; }
-            set { _pricePerNight = value; OnPropertyChanged(nameof(PricePerNight)); }
+            get { return _rate; }
+            set { _rate = value; OnPropertyChanged(nameof(Rate)); }
         }
-        // Add properties for other fields like RoomType, MaxOccupancy, Description, SelectedImage, Gym, Spa, Parking, All, PricePerNight
 
         public ObservableCollection<int> MaxOccupancyOptions { get; set; }
 
@@ -87,43 +82,34 @@ namespace HotelPereMaria.viewModels
             return true;
         }
 
-        private async void AddRoom(object parameter)
-        {
-            // Llamar al método AddRoom con la nueva habitación como parámetro
-            await AddRoom(NewRoom);
-        }
-
-        public async Task AddRoom(RoomModel room)
+        public async Task AddRoom(dynamic room)
         {
             try
             {
+                using HttpClientHandler handler = new HttpClientHandler();
+                handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
+
                 string apiUrl = "https://localhost/api/rooms/";
-                string token = "tu_token_de_autorizacion";
+                string token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmlhQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwODM1NzQ4MH0.q_bdoxS8fe3mGf7YQ97P35v3Q3DIshs1MotPMf3od6k";
 
-                using (HttpClientHandler httpClientHandler = new HttpClientHandler())
+                using (var httpClient = new HttpClient(handler))
                 {
-                    httpClientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
+                    httpClient.DefaultRequestHeaders.Add("Authorization", token);
 
-                    using (HttpClient httpClient = new HttpClient(httpClientHandler))
+                    var jsonContent = JsonConvert.SerializeObject(room);
+                    var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+                    var response = await httpClient.PostAsync(apiUrl, content);
+
+                    if (response.IsSuccessStatusCode)
                     {
-                        httpClient.DefaultRequestHeaders.Add("Authorization", token);
-
-                        string json = JsonConvert.SerializeObject(room);
-                        HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
-
-                        HttpResponseMessage responseMessage = await httpClient.PostAsync(apiUrl, content);
-
-                        if (responseMessage.IsSuccessStatusCode)
-                        {
-                            // Habitación agregada exitosamente
-                            MessageBox.Show("Habitación agregada exitosamente.");
-                        }
-                        else
-                        {
-                            // Manejar errores
-                            string errorMessage = await responseMessage.Content.ReadAsStringAsync();
-                            MessageBox.Show($"Error al agregar la habitación: {errorMessage}");
-                        }
+                        MessageBox.Show("Habitación añadida correctamente.");
+                        //txtRoomNumber.Text = string.Empty;
+                        //txtRoomType.Text = string.Empty;
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Error al añadir la habitación. Código de estado: {response.StatusCode}");
                     }
                 }
             }
