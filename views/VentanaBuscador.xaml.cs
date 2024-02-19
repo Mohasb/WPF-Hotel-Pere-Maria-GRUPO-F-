@@ -70,5 +70,11 @@ namespace HotelPereMaria
             VistaUserView vu = new VistaUserView();
             vu.Show();
         }
+
+        private void btnListUsers_Click(object sender, RoutedEventArgs e)
+        {
+            VistaDatagridView vdg = new VistaDatagridView();
+            vdg.Show();
+        }
     }
 }

@@ -34,17 +34,17 @@ namespace HotelPereMaria
             users.Add(new User()
             {
                 IsSelected = false,
-                ID = 201,
+                ID = 200,
                 Foto = "",
-                Nombre = "Jiandan",
-                Rol = "Administrador",
+                Nombre = "Juan Pere",
+                Rol = "User",
                 IsVIP = true
             });
 
             users.Add(new User()
             {
                 IsSelected = false,
-                ID = 200,
+                ID = 201,
                 Foto = "",
                 Nombre = "Chitan",
                 Rol = "Administrador",
