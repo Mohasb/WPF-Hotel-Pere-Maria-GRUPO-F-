@@ -1,5 +1,6 @@
 ﻿using HotelPereMaria.viewModels;
 using HotelPereMaria.VistaUser;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,9 @@ namespace HotelPereMaria.models
         public Double total_price { get; set; }
 
         private int reservationId;
+        [JsonProperty("_id")]
+        public string Id { get; set; }
+
         public string roomType { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -39,6 +43,9 @@ namespace HotelPereMaria.models
                 }
             }
         }
+
+  
+
 
         public string RoomType
         {

@@ -141,6 +141,17 @@ namespace HotelPereMaria.viewModels
             }
         }
 
+        private string _id;
+        public string Id
+        {
+            get { return _id; }
+            set
+            {
+                _id = value;
+                OnPropertyChanged(nameof(Id));
+            }
+        }
+
         public ReservaVM(UserModel currentUser)
         {
             _currentUser = currentUser;

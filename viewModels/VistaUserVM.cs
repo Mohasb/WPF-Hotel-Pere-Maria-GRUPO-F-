@@ -58,6 +58,7 @@ namespace HotelPereMaria.VistaUser
                 {
                     Reservations.RemoveAt(index);
                 }
+
             }
         }
 
@@ -68,7 +69,7 @@ namespace HotelPereMaria.VistaUser
 
             if (result == MessageBoxResult.Yes)
             {
-                int reservationIndex = reservation.ReservationId - 1;
+                //int reservationIndex = reservation.ReservationId - 1;
 
                 // Eliminar la reserva de la colección local
                 DeleteReservation(reservation);
@@ -76,23 +77,28 @@ namespace HotelPereMaria.VistaUser
                 // Eliminar la reserva de la API utilizando el índice
                 if (reservation != null)
                 {
-                    if (reservationIndex >= 0 && reservationIndex < Reservations.Count)
-                    {
-                        await DeleteReservationApiAsync(reservation.user.email, reservationIndex);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error: Índice de reserva no válido");
-                    }
+
+                    string idReserva = reservation.Id;
+                    await DeleteReservationApiAsync(idReserva);
+
+
+                    //if (reservationIndex >= 0 && reservationIndex < Reservations.Count)
+                    //{
+                    //    await DeleteReservationApiAsync(reservation.user.email, reservationIndex);
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("Error: Índice de reserva no válido");
+                    //}
                 }
             }
         }
 
-        private async Task DeleteReservationApiAsync(string userEmail, int reservationIndex)
+        private async Task DeleteReservationApiAsync(string reservationIndex)
         {
             try
             {
-                string apiUrl = $"https://localhost/api/reservations/{userEmail}/{reservationIndex}";
+                string apiUrl = $"https://localhost/api/reservations/{reservationIndex}";
 
                 using (HttpClientHandler handler = new HttpClientHandler())
                 {
@@ -100,12 +106,16 @@ namespace HotelPereMaria.VistaUser
 
                     using (HttpClient client = new HttpClient(handler))
                     {
-
+                        string token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvcnJlbzFAZXhhbXBsZS5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTcwODI1ODAyOH0.MZk5APRdNL6B4p495PV8XoKnYhiOp-eXkgCw-DiVDSg";
+                        client.DefaultRequestHeaders.Add("Authorization", token);
                         HttpResponseMessage response = await client.DeleteAsync(apiUrl);
 
                         if (!response.IsSuccessStatusCode)
                         {
                             MessageBox.Show($"Error: {response.StatusCode}");
+                        }else
+                        {
+                            MessageBox.Show($"Exito al borrar reserva");
                         }
                     }
                 }
