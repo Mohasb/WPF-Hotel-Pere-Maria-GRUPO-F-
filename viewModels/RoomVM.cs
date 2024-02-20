@@ -18,7 +18,7 @@ namespace HotelPereMaria.viewModels
         {
             try
             {
-                string apiUrl = $"https://localhost/api/rooms/";
+                string apiUrl = $"http://localhost:3000/api/rooms/unique-rooms";
                 string token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmlhQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwODAxMTc5MCwiZXhwIjoxNzM5NTY5MzkwfQ.-ycLIEcnpQGrb-JnYA_RjRHy0qtJ_L3uxtSEIoQhp4E";
 
                 using (HttpClientHandler httpClientHandler = new HttpClientHandler())
@@ -27,7 +27,7 @@ namespace HotelPereMaria.viewModels
 
                     using (HttpClient httpClient = new HttpClient(httpClientHandler))
                     {
-                        httpClient.DefaultRequestHeaders.Add("Authorization", token);  //.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                        httpClient.DefaultRequestHeaders.Add("Authorization", token); 
 
                         HttpResponseMessage responseMessage = await httpClient.GetAsync(apiUrl);
 

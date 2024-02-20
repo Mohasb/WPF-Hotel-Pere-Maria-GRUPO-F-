@@ -32,11 +32,11 @@ namespace HotelPereMaria.models
             }
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+    public class Image
+    {
+        public string _id { get; set; }
+        public string image { get; set; }
+        public string url { get; set; }
     }
    
 }
