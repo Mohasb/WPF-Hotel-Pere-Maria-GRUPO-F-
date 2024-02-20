@@ -52,6 +52,7 @@ namespace HotelPereMaria
                 type = txtRoomType.Text,
                 maxOccupancy = txtMaxOccupancy.Text,
                 description = txtDescription.Text,
+                images = "",
                 rate = txtRate.Text,
             };
 

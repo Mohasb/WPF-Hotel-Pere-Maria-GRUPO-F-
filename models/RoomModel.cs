@@ -7,22 +7,36 @@ using System.Threading.Tasks;
 
 namespace HotelPereMaria.models
 {
-    public class RoomModel
+    public class RoomModel :INotifyPropertyChanged
     {
-        public string _id { get; set; }
-        public int room_number { get; set; }
-        public string type { get; set; }
-        public string description { get; set; }
-        public List<Image> images { get; set; }
-        public double price_per_night { get; set; }
-        public int rate { get; set; }
-        public int max_occupancy { get; set; }
-        public bool isAvailable { get; set; }
-    }
+        public string __id { get; set; }
+        public int _room_number { get; set; }
+        public string _type { get; set; }
+        public string _description { get; set; }
+        public List<String> _images { get; set; }
+        public double _price_per_night { get; set; }
+        public int _rate { get; set; }
+        public int _max_occupancy { get; set; }
+        public bool _isAvailable { get; set; }
 
-    public class Image
-    {
-        public string _id { get; set; }
-        public string image { get; set; }
+        public String _Id
+        {
+            get { return __id; }
+            set
+            {
+                if (__id != value)
+                {
+                    __id = value;
+                    OnPropertyChanged(nameof(_Id));
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
+   
 }

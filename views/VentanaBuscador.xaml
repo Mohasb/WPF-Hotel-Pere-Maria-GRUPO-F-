@@ -39,16 +39,15 @@
                     <StackPanel Orientation="Horizontal">
                         <StackPanel>
                             <Label Margin="20,10,0,0" FontSize="14">Número de Huéspedes</Label>
-                            <ComboBox Margin="20,0,0,0" Width="346" Height="48">
-                                <ComboBoxItem>1</ComboBoxItem>
-                                <ComboBoxItem>2</ComboBoxItem>
-                                <ComboBoxItem>3</ComboBoxItem>
-                                <ComboBoxItem>4</ComboBoxItem>
-                            </ComboBox>
+                            <TextBox Margin="20,0,0,0" Width="346" Height="48">
+                            </TextBox>
                             <Label Margin="20,20,0,0" FontSize="14">Extras</Label>
                             <StackPanel Orientation="Horizontal" Margin="25,5,0,0">
-                                <CheckBox>Cuna</CheckBox>
-                                <CheckBox>Cama extra</CheckBox>
+                                <CheckBox>Spa</CheckBox>
+                                <CheckBox>Parking</CheckBox>
+                                <CheckBox>Gym</CheckBox>
+                                <CheckBox>Completo</CheckBox>
+                                <CheckBox>Wifi</CheckBox>
                             </StackPanel>
                         </StackPanel>
                         <Grid>
@@ -74,18 +73,11 @@
                             </StackPanel>
                         </Grid>
                         <StackPanel>
-                            <Label Margin="20,10,0,0" FontSize="14">¿Miembro VIP?</Label>
+                            <Label Margin="20,10,0,0" FontSize="14">Tipo de habitación</Label>
+                            <TextBox Margin="20,0,0,0" Width="346" Height="48"></TextBox>
                             <StackPanel Orientation="Horizontal">
-                                <RadioButton Margin="20,10,0,0" FontSize="14">Si</RadioButton>
-                                <RadioButton Margin="20,10,0,0" FontSize="14">No</RadioButton>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Background="Transparent" BorderBrush="Transparent" Margin="20,70,0,0">
-                                    <Border BorderBrush="#103260" BorderThickness="1" Height="44" Width="164" CornerRadius="15">
-                                        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">Ofertas</Label>
-                                    </Border>
-                                </Button>
-                                <Button Background="Transparent" BorderBrush="Transparent" Margin="20,70,0,0" Click="Button_Click_1">
+                                
+                                <Button Background="Transparent" BorderBrush="Transparent" Margin="190,70,0,0" Click="Button_Click_1">
                                     <Border Background="#103260" Height="44" Width="164" CornerRadius="15">
                                         <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Buscar</Label>
                                     </Border>
