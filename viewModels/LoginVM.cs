@@ -44,7 +44,7 @@ namespace HotelPereMaria.viewModels
 
         public async Task Login(string email, string password)
         {
-            string apiUrl = "https://localhost/api/login";
+            string apiUrl = "http://localhost:3000/api/login";
 
             try
             {

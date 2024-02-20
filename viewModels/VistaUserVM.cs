@@ -154,7 +154,7 @@ namespace HotelPereMaria.VistaUser
         {
             try
             {
-                string apiUrl = $"https://localhost/api/reservations/{userEmail}";
+                string apiUrl = $"http://localhost:3000/api/reservations/{userEmail}";
 
                 using (HttpClientHandler handler = new HttpClientHandler())
                 {
