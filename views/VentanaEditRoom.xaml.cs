@@ -20,15 +20,19 @@ namespace HotelPereMaria
     /// </summary>
     public partial class VentanaEditRoom : Window
     {
-        private viewModels.EditRoomVM _viewModel;
+        private EditRoomVM _editRoomVM;
         private int room_number;
         public VentanaEditRoom()
         {
             InitializeComponent();
-            DataContext = new EditRoomVM(room_number);
-            int selectedRoomNumber = ((EditRoomVM)DataContext).SelectedRoomNumber;
-            _viewModel = new viewModels.EditRoomVM(selectedRoomNumber);
-            DataContext = _viewModel;
+            _editRoomVM = new EditRoomVM(room_number);
+            DataContext = _editRoomVM;
+            this.LoadRoomsByNumber();
+
+        }
+        public async Task LoadRoomsByNumber()
+        {
+            await _editRoomVM.LoadRoomsByNumber(room_number);
         }
 
         private void OnSelectImageClick(object sender, RoutedEventArgs e)

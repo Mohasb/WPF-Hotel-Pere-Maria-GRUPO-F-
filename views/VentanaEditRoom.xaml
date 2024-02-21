@@ -10,7 +10,14 @@
         <Border CornerRadius="20" Background="#FFF7F5F5" Height="90" Width="1297" VerticalAlignment="Top" Margin="0,30,0,0">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <Label Foreground="#103260" FontWeight="Black" FontSize="20" Margin="50,0,0,0">Elige una habitación: </Label>
-                <ComboBox Margin="40,0,0,0" Width="100" SelectedItem="{Binding SelectedRoomNumber, Mode=TwoWay}">
+                <ComboBox Margin="40,0,0,0" Width="100" 
+          ItemsSource="{Binding Rooms}" 
+          SelectedItem="{Binding SelectedRoom, Mode=TwoWay}" >
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding room_number}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
                 </ComboBox>
             </StackPanel>
         </Border>
