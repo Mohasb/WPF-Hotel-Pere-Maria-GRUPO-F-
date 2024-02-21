@@ -22,12 +22,12 @@
                             <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Lista de usuarios</Label>
                         </Border>
                     </Button>
-                    <Button x:Name="btnAddReserva" Background="Transparent" BorderBrush="Transparent" Width="170" Height="48">
+                    <Button x:Name="btnAddRoom" Background="Transparent" BorderBrush="Transparent" Width="170" Height="48" Click="btnAddRoom_Click">
                         <Border Background="#103260" Height="44" Width="164" CornerRadius="15">
                             <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Añadir habitación</Label>
                         </Border>
                     </Button>
-                    <Button x:Name="btnEditRoom" Background="Transparent" BorderBrush="Transparent" Width="170" Height="48" Margin="0,0,0,0">
+                    <Button x:Name="btnEditRoom" Background="Transparent" BorderBrush="Transparent" Width="170" Height="48" Margin="0,0,0,0" Click="btnEditRoom_Click">
                         <Border Background="#103260" Height="44" Width="164" CornerRadius="15">
                             <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#F3F6FA">Editar/Eliminar habitación</Label>
                         </Border>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelPereMaria.viewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,15 @@ namespace HotelPereMaria
     /// </summary>
     public partial class VentanaEditRoom : Window
     {
+        private viewModels.EditRoomVM _viewModel;
+        private int room_number;
         public VentanaEditRoom()
         {
             InitializeComponent();
+            DataContext = new EditRoomVM(room_number);
+            int selectedRoomNumber = ((EditRoomVM)DataContext).SelectedRoomNumber;
+            _viewModel = new viewModels.EditRoomVM(selectedRoomNumber);
+            DataContext = _viewModel;
         }
 
         private void OnSelectImageClick(object sender, RoutedEventArgs e)

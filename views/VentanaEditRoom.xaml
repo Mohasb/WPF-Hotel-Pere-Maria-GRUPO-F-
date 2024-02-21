@@ -10,15 +10,11 @@
         <Border CornerRadius="20" Background="#FFF7F5F5" Height="90" Width="1297" VerticalAlignment="Top" Margin="0,30,0,0">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <Label Foreground="#103260" FontWeight="Black" FontSize="20" Margin="50,0,0,0">Elige una habitación: </Label>
-                <ComboBox Margin="40,0,0,0" Width="100">
-                    <ComboBoxItem>101</ComboBoxItem>
-                    <ComboBoxItem>101</ComboBoxItem>
-                    <ComboBoxItem>101</ComboBoxItem>
-                    <ComboBoxItem>101</ComboBoxItem>
+                <ComboBox Margin="40,0,0,0" Width="100" SelectedItem="{Binding SelectedRoomNumber, Mode=TwoWay}">
                 </ComboBox>
             </StackPanel>
         </Border>
-        <Border CornerRadius="20" Background="#FFF7F5F5" Height="691" Width="1297">
+        <Border CornerRadius="20" Background="#FFF7F5F5" Height="691" Width="1297" Margin="0,40,0,0">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -38,16 +34,16 @@
 
                 <Label Foreground="#103260" FontWeight="Black" Content="Editar habitación" FontSize="38" HorizontalAlignment="Center"/>
 
-                <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Margin="20">Nombre</Label>
-                <TextBox Foreground="#103260" Grid.Row="2" Grid.ColumnSpan="2" Height="50" Margin="20,0,20,0"/>
+                <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Margin="20">Tipo</Label>
+                <TextBox Foreground="#103260" Grid.Row="2"  Height="50" Margin="20,0,20,0"/>
+
+                <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="20">Número</Label>
+                <TextBox Foreground="#103260" Grid.Row="2" Grid.Column="1" Height="50" Margin="20,0,20,0"/>
+
 
                 <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Margin="20">Nº huéspedes</Label>
-                <ComboBox Foreground="#103260" Grid.Row="2" Grid.Column="2" Height="50" Margin="20,0,20,0">
-                    <ComboBoxItem>1</ComboBoxItem>
-                    <ComboBoxItem>2</ComboBoxItem>
-                    <ComboBoxItem>3</ComboBoxItem>
-                    <ComboBoxItem>4</ComboBoxItem>
-                </ComboBox>
+                <TextBox Foreground="#103260" Grid.Row="2" Grid.Column="2" Height="50" Margin="20,0,20,0">
+                </TextBox>
 
                 <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Center" Margin="20">Descripción</Label>
                 <TextBox Foreground="#103260" Grid.Row="4" Grid.ColumnSpan="3" Height="180" Margin="20,0,20,0"/>
@@ -64,7 +60,7 @@
                     <RadioButton Margin="20,20,0,0" FontSize="14">all</RadioButton>
                 </StackPanel>
 
-                <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Column="2" Grid.Row="5" VerticalAlignment="Center" Margin="20">Precio por noche</Label>
+                <Label Foreground="#103260" FontSize="14" HorizontalAlignment="Left" Grid.Column="2" Grid.Row="5" VerticalAlignment="Center" Margin="20">Rate</Label>
                 <TextBox Foreground="#103260" Grid.Column="2" Grid.Row="6" Height="50" Margin="20,0,20,0"/>
 
                 <Button Background="Transparent" BorderBrush="Transparent" Grid.Column="2" Grid.Row="9" HorizontalAlignment="Right" Margin="0,0,200,0">

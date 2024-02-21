@@ -79,5 +79,17 @@ namespace HotelPereMaria
             VistaDatagridView vdg = new VistaDatagridView();
             vdg.Show();
         }
+
+        private void btnAddRoom_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaAddRoom ventanaAddRoom = new VentanaAddRoom();
+            ventanaAddRoom.Show();
+        }
+
+        private void btnEditRoom_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaEditRoom ventanaEditRoom = new VentanaEditRoom();
+            ventanaEditRoom.Show();
+        }
     }
 }
