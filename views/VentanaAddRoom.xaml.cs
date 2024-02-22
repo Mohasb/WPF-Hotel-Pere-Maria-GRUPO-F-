@@ -48,11 +48,11 @@ namespace HotelPereMaria
         {
             var roomDetails = new
             {
-                room_number = txtRoomNumber.Text,
+                room_number = int.Parse(txtRoomNumber.Text),
                 type = txtRoomType.Text,
-                maxOccupancy = txtMaxOccupancy.Text,
+                max_occupancy = int.Parse(txtMaxOccupancy.Text),
                 description = txtDescription.Text,
-                rate = txtRate.Text,
+                rate = int.Parse(txtRate.Text),
             };
 
             await _addRoom.AddRoom(roomDetails);

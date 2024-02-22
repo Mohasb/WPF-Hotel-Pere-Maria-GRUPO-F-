@@ -89,7 +89,7 @@ namespace HotelPereMaria.viewModels
                 using HttpClientHandler handler = new HttpClientHandler();
                 handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
 
-                string apiUrl = "https://localhost/api/rooms/";
+                string apiUrl = "http://localhost:3000/api/rooms/";
                 string token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmlhQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwODM1NzQ4MH0.q_bdoxS8fe3mGf7YQ97P35v3Q3DIshs1MotPMf3od6k";
 
                 using (var httpClient = new HttpClient(handler))

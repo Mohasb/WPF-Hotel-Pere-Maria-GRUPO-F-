@@ -204,7 +204,7 @@ namespace HotelPereMaria.viewModels
             string jsonData = JsonConvert.SerializeObject(reservationData, Formatting.Indented);
 
 
-            string apiUrl = "https://localhost/api/reservations";
+            string apiUrl = "http://localhost:3000/api/reservations";
 
             try
             {

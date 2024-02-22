@@ -3,6 +3,7 @@ using HotelPereMaria.VistaUser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -28,6 +29,8 @@ namespace HotelPereMaria
             _roomVM = new RoomVM();
             DataContext = _roomVM;
             this.LoadRooms();
+            using HttpClientHandler handler = new HttpClientHandler();
+            handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
         }
 
         public async Task LoadRooms()
@@ -73,6 +76,18 @@ namespace HotelPereMaria
         {
             VistaDatagridView vdg = new VistaDatagridView();
             vdg.Show();
+        }
+
+        private void btnAddRoom_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaAddRoom ventanaAddRoom = new VentanaAddRoom();
+            ventanaAddRoom.Show();
+        }
+
+        private void btnEditRoom_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaEditRoom ventanaEditRoom = new VentanaEditRoom();
+            ventanaEditRoom.Show();
         }
     }
 }

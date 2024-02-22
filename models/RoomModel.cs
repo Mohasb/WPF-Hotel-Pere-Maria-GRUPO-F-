@@ -24,5 +24,6 @@ namespace HotelPereMaria.models
     {
         public string _id { get; set; }
         public string image { get; set; }
+        public string url { get; set; }
     }
 }
