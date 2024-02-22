@@ -1,4 +1,5 @@
-﻿using HotelPereMaria.VistaUser;
+﻿using HotelPereMaria.viewModels;
+using HotelPereMaria.VistaUser;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,93 +23,19 @@ namespace HotelPereMaria
     /// </summary>
     public partial class VistaDatagridView : Window
     {
+        private VistaDatagridVM datagridViewModel;
+
         public VistaDatagridView()
         {
             InitializeComponent();
-            dgUsers.ItemsSource = LoadCollectionData();
-            lvUsers.ItemsSource = LoadCollectionData();
-        }
-        private ObservableCollection<User> LoadCollectionData()
-        {
-            ObservableCollection<User> users = new ObservableCollection<User>();
-
-            users.Add(new User()
-            {
-                IsSelected = false,
-                ID = 200,
-                Foto = "https://i.pravatar.cc/300?img=11",
-                Nombre = "Juan Pere",
-                Rol = "User",
-                IsVIP = true
-            });
-
-            users.Add(new User()
-            {
-                IsSelected = false,
-                ID = 201,
-                Foto = "https://i.pravatar.cc/300?img=32",
-                Nombre = "Elena",
-                Rol = "Administrador",
-                IsVIP = true
-            });
-
-            return users;
+            datagridViewModel = new();
+            DataContext = datagridViewModel;
+            LoadUsers();
         }
 
-        public class User
+        private async void LoadUsers()
         {
-            public bool IsSelected { get; set; }
-            public int ID { get; set; }
-            public string Foto { get; set; }
-            public string Nombre { get; set; }
-            public string Rol { get; set; }
-            public bool IsVIP { get; set; }
-        }
-
-        private void chkSelectAll_CheckedChanged(object sender, RoutedEventArgs e)
-        {
-            bool AllChecked = (chkSelectAll.IsChecked == true);
-            foreach (User user in dgUsers.Items)
-            {
-                user.IsSelected = AllChecked;
-                MessageBox.Show(user.IsSelected.ToString());
-            }
-        }
-
-        private void colchkSelect1_CheckedChanged(object sender, RoutedEventArgs e)
-        {
-            bool allSelected = dgUsers.Items.Cast<User>().All(user => user.IsSelected);
-            MessageBox.Show(allSelected.ToString());
-            bool anySelected = dgUsers.Items.Cast<User>().Any(user => user.IsSelected);
-            MessageBox.Show(anySelected.ToString());
-
-            if (allSelected)
-            {
-                chkSelectAll.IsChecked = true;
-            }
-            else if (anySelected)
-            {
-                chkSelectAll.IsChecked = false;
-            }
-            else
-            {
-                chkSelectAll.IsChecked = false;
-            }
-        }
-
-        private void btnEdit_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnInformation_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
-        {
-
+            await datagridViewModel.LoadUsers();
         }
 
         private void toggleButton_Checked(object sender, RoutedEventArgs e)
@@ -123,12 +50,6 @@ namespace HotelPereMaria
             dgUsers.Visibility = toggleBtn.IsChecked == true ? Visibility.Visible : Visibility.Collapsed;
             lblIconBtn.Content = "DataGrid";
             lvUsers.Visibility = toggleBtn.IsChecked == true ? Visibility.Collapsed : Visibility.Visible;
-        }
-
-        private void btnInf_Click(object sender, RoutedEventArgs e)
-        {
-            VistaUserView vistaUserView = new VistaUserView();
-            vistaUserView.Show();
         }
     }
 }

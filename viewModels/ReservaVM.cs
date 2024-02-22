@@ -215,7 +215,7 @@ namespace HotelPereMaria.viewModels
 
                 using (HttpClient client = new HttpClient(handler))
                 {
-                    string token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvcnJlbzFAZXhhbXBsZS5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTcwODI1ODAyOH0.MZk5APRdNL6B4p495PV8XoKnYhiOp-eXkgCw-DiVDSg";
+                    string token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNoaXRhbkBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MDgwOTY5NjksImV4cCI6MTczOTY1NDU2OX0.dcO9K6elJIYVWmlwcZ4DvwJWBQu6X7X8sDzS4yAsPLc";
                     client.DefaultRequestHeaders.Add("Authorization", token);
 
                     StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");

@@ -14,18 +14,18 @@ namespace HotelPereMaria.VistaUser
         public string Email { get; private set; }
         private VistaUserVM viewModel;
 
-        public VistaUserView(/*string email*/)
+        public VistaUserView(string email)
         {
             InitializeComponent();
-            //Email = email;
+            Email = email;
             viewModel = new();
             DataContext = viewModel;
-            LoadReservations(/*Email*/);
+            LoadReservations(Email);
         }
 
-        private async void LoadReservations(/*string email*/)
+        private async void LoadReservations(string email)
         {
-           await viewModel.LoadReservations(/*Email*/"correo1@example.com");
+           await viewModel.LoadReservations(Email);
         }
 
         private void toggleButton_Checked(object sender, RoutedEventArgs e)

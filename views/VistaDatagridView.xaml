@@ -43,47 +43,19 @@
                 <DataGrid 
                     Name="dgUsers" HorizontalAlignment="Stretch" ColumnHeaderStyle="{StaticResource dgcHeaderStyle}" Visibility="Collapsed"
                     Margin="25,100,25,25" VerticalAlignment="Stretch" IsReadOnly="True" AutoGenerateColumns="False" Grid.ColumnSpan="2"
-                    RowHeight="50" ColumnWidth="120" HorizontalScrollBarVisibility="Visible" GridLinesVisibility="Horizontal"
+                    RowHeight="50" ColumnWidth="120" HorizontalScrollBarVisibility="Visible" GridLinesVisibility="Horizontal" ItemsSource="{Binding Users}" 
                     VerticalScrollBarVisibility="Visible" CanUserSortColumns="True" SelectionMode="Extended" CanUserReorderColumns="False" 
                     CanUserResizeColumns="False" CanUserResizeRows="False" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
                     <DataGrid.Columns>
-                        <DataGridTemplateColumn Width="30">
-                            <DataGridTemplateColumn.Header>
-                                <CheckBox Name="chkSelectAll" Checked="chkSelectAll_CheckedChanged" Unchecked="chkSelectAll_CheckedChanged"></CheckBox>
-                            </DataGridTemplateColumn.Header>
-
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <CheckBox Name="colchkSelect1" IsChecked="{Binding IsSelected}" Checked="colchkSelect1_CheckedChanged" Unchecked="colchkSelect1_CheckedChanged"></CheckBox>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="50" />
-
-                        <DataGridTemplateColumn Header="Foto" Width="100">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Image Source="{Binding Foto}" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="200" />
-                        <DataGridTextColumn Header="Rol" Binding="{Binding Rol}" Width="200" />
-
-                        <DataGridTemplateColumn Header="VIP" Width="100">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <CheckBox IsChecked="{Binding IsVIP}" IsEnabled="False" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Nombre" Binding="{Binding name}" Width="200" />
+                        <DataGridTextColumn Header="Fecha nacimiento" Binding="{Binding birth_date}" Width="200" />
+                        <DataGridTextColumn Header="Email" Binding="{Binding email}" Width="200" />
+                        <DataGridTextColumn Header="Rol" Binding="{Binding role}" Width="200" />
 
                         <DataGridTemplateColumn Width="60" Header="Acción">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button x:Name="btnEdit" Content="Edit" Height="Auto" Width="30" Margin="10" Click="btnEdit_Click"/>
+                                    <Button Name="btnEdit" Content="Edit" Height="Auto" Width="30" Margin="10" Command="{Binding DataContext.EditCommad, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
@@ -91,7 +63,7 @@
                         <DataGridTemplateColumn Width="60">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button x:Name="btnInformation" Content="Inf" Height="Auto" Width="30" Margin="10" Click="btnInformation_Click"/>
+                                    <Button Name="btnInformation" Content="Inf" Height="Auto" Width="30" Margin="10" Command="{Binding DataContext.InformationCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
@@ -99,7 +71,7 @@
                         <DataGridTemplateColumn Width="60">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button x:Name="btnDelete" Content="Del" Height="Auto" Width="30" Margin="10" Click="btnDelete_Click"/>
+                                    <Button Name="btnDelete" Content="Del" Height="Auto" Width="30" Margin="10" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
@@ -113,42 +85,17 @@
                     ItemsSource="{Binding Users}" BorderBrush="Transparent" FontWeight="Medium">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="ID" Width="40">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock>
-                                            <Run Text="#" />
-                                            <Run Text="{Binding ID}" />
-                                        </TextBlock>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-
-                            <GridViewColumn Header="Foto" Width="150">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Image Source="{Binding Foto}" />
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            
-                            <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding Nombre}" Width="300" />
-                            <GridViewColumn Header="Rol" DisplayMemberBinding="{Binding Rol}" Width="300" />
-
-                            <GridViewColumn Header="VIP" Width="100">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <CheckBox IsChecked="{Binding IsVIP}" IsEnabled="False" />
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
+                            <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding name}" Width="200" />
+                            <GridViewColumn Header="Fecha nacimiento" DisplayMemberBinding="{Binding birth_date}" Width="200" />
+                            <GridViewColumn Header="Email" DisplayMemberBinding="{Binding email}" Width="200" />
+                            <GridViewColumn Header="Rol" DisplayMemberBinding="{Binding role}" Width="200" />
 
                             <GridViewColumn Header="Acciones">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel>
                                             <Button Style="{StaticResource PrimaryButtonStyle}" Content="Eliminar" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" Margin="5"/>
-                                            <Button Style="{StaticResource PrimaryButtonStyle}" Content="Informacion" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" Margin="5" Click="btnInf_Click"/>
+                                            <Button Style="{StaticResource PrimaryButtonStyle}" Content="Informacion" Command="{Binding DataContext.InformationCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" Margin="5"/>
                                             <Button Style="{StaticResource PrimaryButtonStyle}" Content="Editar" Command="{Binding DataContext.EditCommad, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" Margin="5"/>
                                         </StackPanel>
                                     </DataTemplate>

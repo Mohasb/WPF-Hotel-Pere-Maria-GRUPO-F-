@@ -67,8 +67,6 @@ namespace HotelPereMaria
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            VistaUserView vu = new VistaUserView();
-            vu.Show();
         }
 
         private void btnListUsers_Click(object sender, RoutedEventArgs e)
