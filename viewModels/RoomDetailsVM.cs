@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -92,7 +93,14 @@ namespace HotelPereMaria.viewModels
                 string apiURL = $"http://localhost:3000/api/rooms/{SelectedRoom}";
                 string token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmlhQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwODU0MDY5Nn0.v4gtTC0CTmI2crZitB5L_RVfvfTC1tyZKznIImxzOAs";
 
-                var data = new { Type, RoomNumber, Description, Rate, Max_occupancy };
+                var data = new
+                {
+                    type = Type,
+                    room_number = RoomNumber,
+                    description = Description,
+                    rate = Rate,
+                    max_occupancy = Max_occupancy
+                };
                 var json = JsonConvert.SerializeObject(data);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -121,39 +129,7 @@ namespace HotelPereMaria.viewModels
                 MessageBox.Show($"Error: {ex.Message}");
             }
         }
-
-        //private async Task UpdateRoom()
-        //{
-        //    try
-        //    {
-
-        //        string apiURL = $"http://localhost:3000/api/rooms/{SelectedRoom}";
-        //        string token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmlhQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwODU0MDY5Nn0.v4gtTC0CTmI2crZitB5L_RVfvfTC1tyZKznIImxzOAs";
-        //        using (HttpClientHandler httpClientHandler = new HttpClientHandler())
-        //        {
-        //            httpClientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
-
-        //            using (HttpClient client = new HttpClient(httpClientHandler))
-        //            {
-        //                var data = new { Type, RoomNumber, Description, Rate, Max_occupancy };
-        //                client.DefaultRequestHeaders.Add("Authorization", token);
-        //                HttpResponseMessage response = await client.PatchAsync(apiURL, data);
-        //                if (response.IsSuccessStatusCode)
-        //                {
-        //                    MessageBox.Show("Habitación actualizada correctamente");
-        //                }
-        //                else
-        //                {
-        //                    MessageBox.Show($"{response.StatusCode}");
-        //                }
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"Error: {ex.Message}");
-        //    }
-        //}
+        
         private async Task GetRoomDetails()
         {
             foreach(var room in _allRooms)
