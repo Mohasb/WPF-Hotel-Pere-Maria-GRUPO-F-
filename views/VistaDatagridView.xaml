@@ -106,5 +106,6 @@
                 </ListView>
             </Grid>
         </Border>
+        <Button x:Name="btnAddUser" Grid.Column="1" Style="{StaticResource CircularButtonStyle}" Click="btnAddUser_Click" Margin="0,0,140,140" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

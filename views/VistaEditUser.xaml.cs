@@ -53,7 +53,6 @@ namespace HotelPereMaria
                 dpBirthDate.SelectedDate.Value, 
                 txtBoxPhone.Text
             );
-            MessageBox.Show(userModified.name);
             ModifyUser(Email, userModified);
         }
     }

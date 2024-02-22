@@ -17,15 +17,27 @@ namespace HotelPereMaria.models
         public DateTime birth_date { get; set; }
         public string role { get; set; }
         public string phone { get; set; }
+        public string password { get; set; }
 
         public UserModel() { }
-        public UserModel(string name, string userName, string email, DateTime birthDate, string phone)
+        public UserModel(string Name, string UserName, string Email, DateTime birthDate, string Phone)
         {
-            name = name;
-            user_name = userName;
-            email = email;
+            name = Name;
+            user_name = UserName;
+            email = Email;
             birth_date = birthDate;
-            phone = phone;
+            phone = Phone;
+        }
+
+        public UserModel(string Name, string UserName, string Email, DateTime birthDate, string Phone, string Role, string Password)
+        {
+            name = Name;
+            user_name = UserName;
+            email = Email;
+            birth_date = birthDate;
+            phone = Phone;
+            role = Role;
+            password = Password;
         }
     }
 }

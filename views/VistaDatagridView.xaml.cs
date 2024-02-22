@@ -1,4 +1,5 @@
-﻿using HotelPereMaria.viewModels;
+﻿using HotelPereMaria.models;
+using HotelPereMaria.viewModels;
 using HotelPereMaria.VistaUser;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,12 @@ namespace HotelPereMaria
             dgUsers.Visibility = toggleBtn.IsChecked == true ? Visibility.Visible : Visibility.Collapsed;
             lblIconBtn.Content = "DataGrid";
             lvUsers.Visibility = toggleBtn.IsChecked == true ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        private void btnAddUser_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaAddEditUser vAdd = new VentanaAddEditUser();
+            vAdd.Show();
         }
     }
 }
